@@ -1,0 +1,182 @@
+
+package com.mincom.gescom.be.ref.entity;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+
+@Entity
+@Table(name="TAB_PRO")
+public class TabPro extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabPro(){
+		
+	}
+	
+	public TabPro(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_PRO")
+	private String codPro;
+
+	@Column(name = "LIB_PRO")
+	private String libPro;
+	
+	@Column(name = "LIB_POSI_TARIF")
+	private String libPosiTarif;
+	
+	@Column(name = "LIB_COLI")
+	private String libColi;
+	
+	@Column(name = "VAL_QTE")
+	private BigDecimal valQte;
+	
+	@Column(name = "VAL_TOTAL_QTE")
+	private BigDecimal valTotalQte;
+	
+	@Column(name = "LIB_POI_NET")
+	private String libPoiNet;
+	
+	@Column(name = "VAL_PRIX_DVS")
+	private BigDecimal valPrixDvs;
+	
+	@Column(name = "VAL_TOTAL_PRIX_DVS")
+	private BigDecimal valTotalPrixDev;
+	
+	@Column(name = "VAL_PRIX_CFA")
+	private BigDecimal valPrixCfa;
+	
+	@Column(name = "VAL_TOTAL_PRIX_CFA")
+	private BigDecimal valTotalPrixCfa;
+	
+	@Column(name = "COD_GEN_IMP")
+	private String codGenImp;
+	
+	
+	public BigDecimal getValTotalQte() {
+		return valTotalQte;
+	}
+
+	public void setValTotalQte(BigDecimal valTotalQte) {
+		this.valTotalQte = valTotalQte;
+	}
+
+	public BigDecimal getValTotalPrixDev() {
+		return valTotalPrixDev;
+	}
+
+	public void setValTotalPrixDev(BigDecimal valTotalPrixDev) {
+		this.valTotalPrixDev = valTotalPrixDev;
+	}
+
+	public BigDecimal getValTotalPrixCfa() {
+		return valTotalPrixCfa;
+	}
+
+	public void setValTotalPrixCfa(BigDecimal valTotalPrixCfa) {
+		this.valTotalPrixCfa = valTotalPrixCfa;
+	}
+
+	public BigDecimal getValPrixCfa() {
+		return valPrixCfa;
+	}
+
+	public void setValPrixCfa(BigDecimal valPrixCfa) {
+		this.valPrixCfa = valPrixCfa;
+	}
+
+	public String getLibPosiTarif() {
+		return libPosiTarif;
+	}
+
+	public void setLibPosiTarif(String libPosiTarif) {
+		this.libPosiTarif = libPosiTarif;
+	}
+
+	public String getLibColi() {
+		return libColi;
+	}
+
+	public void setLibColi(String libColi) {
+		this.libColi = libColi;
+	}
+
+	public BigDecimal getValQte() {
+		return valQte;
+	}
+
+	public void setValQte(BigDecimal valQte) {
+		this.valQte = valQte;
+	}
+
+	public String getLibPoiNet() {
+		return libPoiNet;
+	}
+
+	public void setLibPoiNet(String libPoiNet) {
+		this.libPoiNet = libPoiNet;
+	}
+
+	@Override
+	public String getEntityCode() {
+		return "Pro";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodPro();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodPro((String) id);
+	}
+
+
+	@Override
+	public void validateData() {
+	}
+
+	@Override
+	public void initData() {
+	}
+
+	public void setCodPro(String codPro) {
+		this.codPro = codPro;
+	}
+
+	public String getCodPro() {
+		return codPro;
+	}
+
+	public void setLibPro(String libPro) {
+		this.libPro = libPro;
+	}
+
+	public String getLibPro() {
+		return libPro;
+	}
+
+	public void setValPrixDvs(BigDecimal valPrixDvs) {
+		this.valPrixDvs = valPrixDvs;
+	}
+
+	public BigDecimal getValPrixDvs() {
+		return valPrixDvs;
+	}
+
+}

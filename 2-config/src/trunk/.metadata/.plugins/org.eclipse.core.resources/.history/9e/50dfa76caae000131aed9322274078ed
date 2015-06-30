@@ -1,0 +1,19 @@
+package com.mincom.gescom.be.imp.entity;
+
+import javax.persistence.MappedSuperclass;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+@MappedSuperclass
+public abstract class TabGenericImp extends GesComBaseEntity{
+	
+	public TabGenericImp(){
+		
+	}
+	
+	public TabGenericImp(InfoUser infoUser){
+		
+	}
+
+}

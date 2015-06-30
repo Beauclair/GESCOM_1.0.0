@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+
+ 	<ui:composition template="/shared/templates/templateFormulaireDetails.xhtml">
+   			
+		<ui:param name="managedBean" value="#{sessionScope[proCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" d'un produit" />
+		
+	<!-- Definition du contenu de l'ecran principal  -->
+		<ui:define name="ecranPrincipalContenu">
+	
+			<h:panelGroup>
+				<fieldset>
+					<legend> <h:outputText value="Detail produit" styleClass="legend" />  </legend>
+
+        			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow"  >
+        							         		
+         				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+
+							<h:outputText value="Code produit"   />
+			  				<h:inputText  value="#{entiteCourante.codPro}" style="width: 95%"  readonly="true" />
+
+							<h:outputText value="Libellé produit"   />
+			  				<h:inputText value="#{entiteCourante.libPro}" style="width: 95%"  readonly="true"  redisplay="true" />
+
+							<h:outputText value="Position tarifaire"   />
+			  				<h:inputText value="#{entiteCourante.libPosTarif}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							<h:outputText value="Colisage"   />
+			  				<h:inputText value="#{entiteCourante.libColi}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							<h:outputText value="Quantité"   />
+			  				<h:inputText value="#{entiteCourante.valQte}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							<h:outputText value="Poids Net"   />
+			  				<h:inputText value="#{entiteCourante.libPoiNet}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							<h:outputText value="Valeur FOB en devise"   />
+			  				<h:inputText value="#{entiteCourante.valPrixDvs}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							<h:outputText value="Valeur FOB en F CFA"   />
+			  				<h:inputText value="#{entiteCourante.valPrixCfa}" style="width: 95%"  readonly="true"  redisplay="true" />
+							
+							
+         				</h:panelGrid>  
+         				
+         				<h:panelGrid columns="2"  width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+         				</h:panelGrid>
+         					         		         		
+         			</h:panelGrid>  
+         	
+				</fieldset>								
+			</h:panelGroup>
+
+		</ui:define>
+													
+	</ui:composition>
+	
+</html>

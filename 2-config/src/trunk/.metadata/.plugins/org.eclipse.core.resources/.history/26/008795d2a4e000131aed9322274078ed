@@ -1,0 +1,5 @@
+package com.mincom.gescom.be.imp.sisv;
+
+public interface ISisvAutSpeImp {
+
+}

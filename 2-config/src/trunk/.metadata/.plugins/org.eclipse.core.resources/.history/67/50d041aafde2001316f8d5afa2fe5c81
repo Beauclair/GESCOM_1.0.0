@@ -1,0 +1,431 @@
+package com.mincom.gescom.be.imp.entity;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.mincom.gescom.be.core.base.DateTools;
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.core.enums.EnuModPaie;
+import com.mincom.gescom.be.core.enums.EnuModTrans;
+import com.mincom.gescom.be.core.enums.EnuRelFour;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.be.ref.entity.TabBnq;
+import com.mincom.gescom.be.ref.entity.TabFour;
+import com.mincom.gescom.be.ref.entity.TabImp;
+import com.mincom.gescom.be.ref.entity.TabPays;
+import com.mincom.gescom.be.ref.entity.TabPro;
+import com.mincom.gescom.be.ref.entity.TabTrans;
+import com.mincom.gescom.be.util.InfoUser;
+
+@Entity
+@Table(name="TAB_DEC_IMP")
+public class TabDecImp extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabDecImp(){
+		
+	}
+	
+	public TabDecImp(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_AUT")
+	private String codAut;
+	
+	@Column(name = "NUM_AUT")
+	private String numAut;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_IMP")
+	private TabImp tabImp;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_ACT")
+	private TabAct tabAct;
+
+	@ManyToOne
+	@JoinColumn(name = "COD_FOUR")
+	private TabFour tabFour;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_TRANS")
+	private TabTrans tabTrans;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_BNQ")
+	private TabBnq tabBnq;
+	
+	@Column(name = "LIB_INT")
+	private String libInt;
+	
+	@Column(name = "VAL_TOTAL_QTE")
+	private BigDecimal valTotalQte;
+	
+	@Column(name = "VAL_TOTAL_PRIX_DVS")
+	private BigDecimal valTotalPrixDev;
+	
+	@Column(name = "VAL_TOTAL_PRIX_CFA")
+	private BigDecimal valTotalPrixCfa;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_PAYS_ORI")
+	private TabPays tabPaysOri;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_PAYS_PRO")
+	private TabPays tabPaysPro;
+	
+	@Column(name = "LIB_MOTIF")
+	private String libMotif;
+	
+	@Column(name = "LIB_BUR_DED")
+	private String libBurDed;
+	
+	@Column(name = "ENU_MOD_PAIE")
+	private String enuModPaie;
+	
+	@Column(name = "ENU_MOD_TRANS")
+	private String enuModTrans;
+	
+	@Column(name = "ENU_REL_FOUR")
+	private String enuRelFour;
+	
+	@Column(name = "DAT_AUT")
+	private String datAut;
+	
+	@Column(name = "COD_DVS")
+	private String codDvs;
+	
+	@Column(name = "LIB_DVS")
+	private String libDvs;
+	
+	@Column(name = "TAUX_DVS")
+	private BigDecimal tauxDvs;
+	
+	/**
+	 * Liste des produits
+	 */
+	@Transient
+	private List<TabPro> listPro = new ArrayList<TabPro>();
+	
+	public String getLEnuModPaie() {
+		EnuModPaie v$enum = EnuModPaie.getByValue(this.enuModPaie); 
+		return (v$enum == null)? null: v$enum.getLibelle();
+	}
+	
+	public String getLEnuModTrans() {
+		EnuModTrans v$enum = EnuModTrans.getByValue(this.enuModTrans); 
+		return (v$enum == null)? null: v$enum.getLibelle();
+	}
+	
+	public String getLEnuRelFour() {
+		EnuRelFour v$enum = EnuRelFour.getByValue(this.enuRelFour); 
+		return (v$enum == null)? null: v$enum.getLibelle();
+	}
+
+	public String getCodAut() {
+		return codAut;
+	}
+
+	public void setCodAut(String codAut) {
+		this.codAut = codAut;
+	}
+
+	public String getNumAut() {
+		return numAut;
+	}
+
+	public void setNumAut(String numAut) {
+		this.numAut = numAut;
+	}
+
+	public TabImp getTabImp() {
+		return tabImp;
+	}
+
+	public void setTabImp(TabImp tabImp) {
+		this.tabImp = tabImp;
+	}
+
+	public TabAct getTabAct() {
+		return tabAct;
+	}
+
+	public void setTabAct(TabAct tabAct) {
+		this.tabAct = tabAct;
+	}
+
+	public TabFour getTabFour() {
+		return tabFour;
+	}
+
+	public void setTabFour(TabFour tabFour) {
+		this.tabFour = tabFour;
+	}
+
+	public TabTrans getTabTrans() {
+		return tabTrans;
+	}
+
+	public void setTabTrans(TabTrans tabTrans) {
+		this.tabTrans = tabTrans;
+	}
+
+	public TabBnq getTabBnq() {
+		return tabBnq;
+	}
+
+	public void setTabBnq(TabBnq tabBnq) {
+		this.tabBnq = tabBnq;
+	}
+
+	public String getLibInt() {
+		return libInt;
+	}
+
+	public void setLibInt(String libInt) {
+		this.libInt = libInt;
+	}
+
+	public BigDecimal getValTotalPrixCfa() {
+		return valTotalPrixCfa;
+	}
+
+	public void setValTotalPrixCfa(BigDecimal valTotalPrixCfa) {
+		this.valTotalPrixCfa = valTotalPrixCfa;
+	}
+
+	public TabPays getTabPaysOri() {
+		return tabPaysOri;
+	}
+
+	public void setTabPaysOri(TabPays tabPaysOri) {
+		this.tabPaysOri = tabPaysOri;
+	}
+
+	public TabPays getTabPaysPro() {
+		return tabPaysPro;
+	}
+
+	public void setTabPaysPro(TabPays tabPaysPro) {
+		this.tabPaysPro = tabPaysPro;
+	}
+
+	public String getLibMotif() {
+		return libMotif;
+	}
+
+	public void setLibMotif(String libMotif) {
+		this.libMotif = libMotif;
+	}
+
+	public String getLibBurDed() {
+		return libBurDed;
+	}
+
+	public void setLibBurDed(String libBurDed) {
+		this.libBurDed = libBurDed;
+	}
+
+	public String getEnuModPaie() {
+		return enuModPaie;
+	}
+
+	public void setEnuModPaie(String enuModPaie) {
+		this.enuModPaie = enuModPaie;
+	}
+
+	public String getEnuModTrans() {
+		return enuModTrans;
+	}
+
+	public void setEnuModTrans(String enuModTrans) {
+		this.enuModTrans = enuModTrans;
+	}
+
+	public String getEnuRelFour() {
+		return enuRelFour;
+	}
+
+	public void setEnuRelFour(String enuRelFour) {
+		this.enuRelFour = enuRelFour;
+	}
+
+	public void setDatAut(String datAut) {
+		this.datAut = datAut;
+	}
+
+	public String getDatAut() {
+		return datAut;
+	}
+	
+	public Date getDatesAut(){
+		if(this.datAut == null || this.datAut.trim().isEmpty())
+			return null;
+		else
+			try {
+				return DateTools.getDateValue(datAut);
+			} catch (ParseException e) {
+				return null;
+			}
+	}
+	
+	public void setDatesAut(Date date){
+		if(date == null)
+			this.datAut = null;
+		else
+			this.datAut = DateTools.formatDate(date);
+	}
+	
+	@Override
+	public String getEntityCode() {
+		return "DecImp";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodAut();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodAut((String)id);
+	}
+
+	@Override
+	public void validateData() {
+		
+		try {
+			if (this.getTabAct() != null
+					&& (this.getTabAct().getNumCodAct() == null || this
+							.getTabAct().getNumCodAct().trim().isEmpty()))
+				this.setTabAct(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabBnq() != null
+					&& (this.getTabBnq().getCodBnq() == null || this
+							.getTabBnq().getCodBnq().trim().isEmpty()))
+				this.setTabBnq(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabFour() != null
+					&& (this.getTabFour().getCodFour() == null || this
+							.getTabFour().getCodFour().trim().isEmpty()))
+				this.setTabFour(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabImp() != null
+					&& (this.getTabImp().getCodNiu() == null || this
+							.getTabImp().getCodNiu().trim().isEmpty()))
+				this.setTabImp(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabPaysOri() != null
+					&& (this.getTabPaysOri().getCodPays() == null || this
+							.getTabPaysOri().getCodPays().trim().isEmpty()))
+				this.setTabPaysOri(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabPaysPro() != null
+					&& (this.getTabPaysPro().getCodPays() == null || this
+							.getTabPaysPro().getCodPays().trim().isEmpty()))
+				this.setTabPaysPro(null);
+		} catch (Exception e) {
+		}
+		
+		try {
+			if (this.getTabTrans() != null
+					&& (this.getTabTrans().getCodTrans() == null || this
+							.getTabTrans().getCodTrans().trim().isEmpty()))
+				this.setTabTrans(null);
+		} catch (Exception e) {
+		}
+
+	}
+
+	@Override
+	public void initData() {
+		
+		tabAct = (tabAct == null ? new TabAct() : tabAct);
+		tabBnq = (tabBnq == null ? new TabBnq() : tabBnq);
+		tabFour = (tabFour == null ? new TabFour() : tabFour);
+		tabImp = (tabImp == null ? new TabImp() : tabImp);
+		tabPaysOri = (tabPaysOri == null ? new TabPays() : tabPaysOri);
+		tabPaysPro = (tabPaysPro == null ? new TabPays() : tabPaysPro);
+		tabTrans = (tabTrans == null ? new TabTrans() : tabTrans);
+	}
+
+	public void setListPro(List<TabPro> listPro) {
+		this.listPro = listPro;
+	}
+
+	public List<TabPro> getListPro() {
+		return listPro;
+	}
+
+	public void setValTotalQte(BigDecimal valTotalQte) {
+		this.valTotalQte = valTotalQte;
+	}
+
+	public BigDecimal getValTotalQte() {
+		return valTotalQte;
+	}
+
+	public void setValTotalPrixDev(BigDecimal valTotalPrixDev) {
+		this.valTotalPrixDev = valTotalPrixDev;
+	}
+
+	public BigDecimal getValTotalPrixDev() {
+		return valTotalPrixDev;
+	}
+
+	public void setCodDvs(String codDvs) {
+		this.codDvs = codDvs;
+	}
+
+	public String getCodDvs() {
+		return codDvs;
+	}
+
+	public void setLibDvs(String libDvs) {
+		this.libDvs = libDvs;
+	}
+
+	public String getLibDvs() {
+		return libDvs;
+	}
+
+	public void setTauxDvs(BigDecimal tauxDvs) {
+		this.tauxDvs = tauxDvs;
+	}
+
+	public BigDecimal getTauxDvs() {
+		return tauxDvs;
+	}
+	
+}

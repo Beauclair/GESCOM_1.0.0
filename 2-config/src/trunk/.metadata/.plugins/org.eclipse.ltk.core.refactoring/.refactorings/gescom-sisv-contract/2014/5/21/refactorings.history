@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ISisvAutSpeImp.java&apos; to &apos;gescom-sisv-contract/src/main/code/importation/com.mincom.gescom.be.imp.sisv&apos;&#x0D;&#x0A;- Original project: &apos;gescom-sisv-contract&apos;&#x0D;&#x0A;- Destination element: &apos;gescom-sisv-contract/src/main/code/importation/com.mincom.gescom.be.imp.sisv&apos;&#x0D;&#x0A;- Original element: &apos;com.mincom.gescom.be.imp.sisv.ISisvAutSpeImp.java&apos;" description="Copy compilation unit" destination="/src\/main\/code\/importation&lt;com.mincom.gescom.be.imp.sisv" element1="/src\/main\/code\/importation&lt;com.mincom.gescom.be.imp.sisv{ISisvAutSpeImp.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1400907168528" units="1" version="1.0"/>
+</session>

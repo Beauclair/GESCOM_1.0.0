@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="gescom-sisv-impl">
+        <wb-resource deploy-path="/" source-path="/ejbModule"/>
+        <wb-resource deploy-path="/" source-path="/src/main/code/core"/>
+        <wb-resource deploy-path="/" source-path="/src/main/code/referentiel"/>
+        <wb-resource deploy-path="/" source-path="/src/main/code/admin"/>
+        <wb-resource deploy-path="/" source-path="/src/main/code/importation"/>
+        <property name="java-output-path" value="/gevee-sisv-impl/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,10 @@
+package com.mincom.gescom.be.imp.svco;
+
+import com.mincom.gescom.be.core.exception.GesComAppException;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+
+public interface ISvcoAutSpeImp {
+
+	TabAutSpeImp rechercherParNumAut(String numAut) throws GesComAppException;
+
+}

@@ -1,0 +1,100 @@
+package com.mincom.gescom.be.core.dao.base;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.ejb.Stateless;
+
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.core.base.TabIncCod;
+import com.mincom.gescom.be.core.exception.GesComPersistenceException;
+
+@Stateless
+public class DaoIncCod extends BaseDao<TabIncCod, String> implements IDaoIncCod{
+
+	private static BaseLogger logger = BaseLogger.getLogger(DaoIncCod.class);
+	
+	@Override
+	public BaseLogger getLogger() {
+		return logger;
+	}
+	
+	@Override
+	public <X extends BaseEntity> X findById(X entity, Serializable id)
+			throws GesComPersistenceException {
+		return null;
+	}
+
+	@Override
+	public <X extends BaseEntity> List<X> findAll(X entity)
+			throws GesComPersistenceException {
+		return null;
+	}
+
+	@Override
+	public <X extends BaseEntity> List<X> findByExample(X entity)
+			throws GesComPersistenceException {
+		return null;
+	}
+	
+	@Override
+	public TabIncCod findNextIncCod(GesComBaseEntity object) throws GesComPersistenceException {
+		try {
+			TabIncCod cmp = this.findInc(new TabIncCod(object));
+			cmp.setValIncCod(cmp.getValIncCod() == null ? new BigDecimal(1)
+					 : cmp.getValIncCod().add(new BigDecimal(1)));
+			
+			return this.update(cmp);
+		} catch (GesComPersistenceException sdr) {
+			throw sdr;
+		} catch (Exception e) {
+			throw new GesComPersistenceException("", e);
+		}
+	}
+	
+	@Override
+	public TabIncCod findInc(TabIncCod compteur) throws GesComPersistenceException {
+		try {
+			// Il faut mettre à null le compteur zCptChrno pour qu'il ne soit pas
+			// pris en compte dans la recherche
+			compteur.setValIncCod(null);
+			
+			logger.debug("[findCpt] Recherche du compteur de code = " + compteur.getCodIncCod());
+			
+			String query = "SELECT o FROM  TabIncCod o ";
+			query += "WHERE (o.codIncCod = '" + compteur.getCodIncCod() + "')";
+			getLogger().debug("Requete <" + query + ">");
+			
+			List<TabIncCod> list = this.getManager().createQuery(query).getResultList();
+			
+			getLogger().debug("Nombre d'éléments trouvés : " + (list == null ? "0" : list.size()));
+			
+			if (list != null && list.size() == 1) {
+				return list.get(0);
+			}
+
+			if (list != null && list.size() > 1)
+				throw new GesComPersistenceException("list.size() > 1");
+			
+			// On arrive ici que s'il n'existe pas ce compteur en base de données
+			// On le créé donc en base et c'est ce dernier qui sera retourné a l'appelant
+			
+			logger.debug("[findInc] Aucun compteur trouvé. création d'un nouveau compteur  : " + compteur.getCodIncCod());
+			logger.debug("[findInc] Initialisation du compteur avant insertion en BDD");
+			compteur.setValIncCod(BigDecimal.ZERO);
+			
+			// On crée et retourne le compteur
+			logger.debug("[findInc] Création effective du nouveau compteur");
+			return this.save(compteur);
+
+		} catch (GesComPersistenceException sdr) {
+			throw sdr;
+		} catch (Exception e) {
+			throw new GesComPersistenceException("", e);
+		}
+	}
+
+}

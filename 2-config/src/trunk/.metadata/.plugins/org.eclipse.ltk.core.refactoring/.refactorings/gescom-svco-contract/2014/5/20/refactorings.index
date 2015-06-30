@@ -1,0 +1,22 @@
+1400175167549	Delete element
+1400175447313	Delete elements
+1400181056632	Rename package 'com.gss.gevee.be.core.svco.base'
+1400181128093	Rename package 'com.gss.gevee.be.ref.svco'
+1400181167249	Rename package 'com.gss.gevee.be.admin.sisv.utilisateur'
+1400261269968	Rename type 'ISvcoLieu'
+1400261282924	Rename type 'IRemoteLieu'
+1400261297105	Rename type 'ILocalLieu'
+1400417732893	Copy compilation units
+1400417748617	Rename type 'ILocalSite'
+1400417760374	Rename type 'IRemoteSite'
+1400417794123	Rename type 'ISvcoSite'
+1400417797324	Copy compilation units
+1400417806852	Rename type 'ILocalSite'
+1400417816541	Rename type 'IRemoteSite'
+1400417825167	Rename type 'ISvcoSite'
+1400422982053	Copy compilation unit
+1400423014248	Copy compilation unit
+1400423044425	Copy compilation unit
+1400423066165	Copy compilation unit
+1400423090516	Copy compilation unit
+1400423110260	Copy compilation unit

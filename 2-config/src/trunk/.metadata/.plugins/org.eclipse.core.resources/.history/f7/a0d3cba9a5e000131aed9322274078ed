@@ -1,0 +1,17 @@
+package com.mincom.gescom.be.imp.sisv;
+
+import java.util.List;
+
+import javax.ejb.Local;
+
+import com.mincom.gescom.be.core.exception.GesComSystemException;
+import com.mincom.gescom.be.core.sisv.base.IBaseSisv;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+
+@Local
+public interface ISisvAutSpeImp extends IBaseSisv<TabAutSpeImp, String>{
+
+	List<TabAutSpeImp> rechercherParNumAut(String numAut)
+			throws GesComSystemException;
+
+}

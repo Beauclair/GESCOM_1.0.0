@@ -1,0 +1,604 @@
+package com.mincom.gescom.ui.imp.controleur;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.exception.GesComAppException;
+import com.mincom.gescom.be.core.svco.base.IBaseSvco;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.be.ref.entity.TabBnq;
+import com.mincom.gescom.be.ref.entity.TabFour;
+import com.mincom.gescom.be.ref.entity.TabImp;
+import com.mincom.gescom.be.ref.entity.TabPays;
+import com.mincom.gescom.be.ref.entity.TabPro;
+import com.mincom.gescom.be.ref.entity.TabTrans;
+import com.mincom.gescom.ui.core.base.CoreConstants;
+import com.mincom.gescom.ui.core.base.FacesUtil;
+import com.mincom.gescom.ui.core.base.GesComCtrl;
+import com.mincom.gescom.ui.core.base.GesComToolBox;
+import com.mincom.gescom.ui.core.base.ServiceLocatorException;
+import com.mincom.gescom.ui.core.base.Traitement;
+import com.mincom.gescom.ui.imp.util.ImpSvcoDelegaute;
+import com.mincom.gescom.ui.imp.util.ImpTrt;
+import com.mincom.gescom.ui.imp.vue.AutSpeImpVue;
+
+public class AutSpeImpCtrl extends GesComCtrl<TabAutSpeImp, TabAutSpeImp>{
+	
+	/**
+	 * Nom du Bean managé par JSF dans le fichier de Configuration 
+	 */
+	private static String nomManagedBean = "autSpeImpCtrl";
+	
+	private TabPro produit;
+	
+	private Map<String, TabPro> mapPro;
+	
+	private BigDecimal totalDvs = BigDecimal.ZERO;
+	private BigDecimal totalCfa = BigDecimal.ZERO;
+	
+	public AutSpeImpCtrl(){		
+		defaultVue = new AutSpeImpVue();	
+		setProduit(new TabPro());
+		mapPro = new HashMap<String, TabPro>();
+	}
+
+	@Override
+	public List<Traitement> getListeTraitements() {
+		String v$codeEntite = "AutSpeImp";
+
+		System.out.println("AutSpeImpCtrl.getListeTraitements() ici il vaut : "
+				+ v$codeEntite);
+		// Ensemble des traitements standards
+		Map<String, Traitement> v$mapTrt = new TreeMap<String, Traitement>(
+				ImpTrt.getTrtStandards(v$codeEntite));
+		
+		listeTraitements = Traitement.getOrderedTrt(v$mapTrt);
+		return listeTraitements;
+	}
+
+	@Override
+	public Class<?> getMyClass() {
+		return AutSpeImpCtrl.class;
+	}
+
+	@Override
+	public void buildListeTraitement() {
+		if(getMapTraitements() == null){
+			setMapTraitements(ImpTrt.getTrtStandards("AutSpeImp")) ;
+		}
+	}
+
+	@Override
+	public List<TabAutSpeImp> rechercherParCritere(TabAutSpeImp p$entity)
+			throws GesComAppException {
+		try {
+			super.setTimeOfLastSearch();
+			return ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherParCritere(p$entity);
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+		}catch (GesComAppException e) {
+			GesComAppException sdr = new GesComAppException(e.getMessage());
+			throw sdr;
+		}
+		return null;
+	}
+
+	@Override
+	public IBaseSvco<TabAutSpeImp> getEntitySvco() throws ServiceLocatorException {
+		return ImpSvcoDelegaute.getSvcoAutSpeImp();
+	}
+
+	public static String getNomManagedBean() {
+		return nomManagedBean;
+	}
+	
+	public void setSelectedEntity(BaseEntity p$entite) {
+
+		// Nom de la propriété à mettre à jour pour
+		String v$propriete = defaultVue.getNavigationMgr().getSelectionPropertyName();
+
+		if (v$propriete.equals("tabImp")) {
+			TabImp v$entite = (TabImp) p$entite;
+			defaultVue.getEntiteCourante().setTabImp(v$entite);
+		}
+	
+		if (v$propriete.equals("tabAct")) {
+
+			TabAct v$entite = (TabAct) p$entite;
+			defaultVue.getEntiteCourante().setTabAct(v$entite);
+		}
+		
+		if (v$propriete.equals("tabFour")) {
+
+			TabFour v$entite = (TabFour) p$entite;
+			defaultVue.getEntiteCourante().setTabFour(v$entite);
+		}
+		
+		if (v$propriete.equals("tabTrans")) {
+			TabTrans v$entite = (TabTrans) p$entite;
+			defaultVue.getEntiteCourante().setTabTrans(v$entite);
+		}
+		
+		if (v$propriete.equals("tabBnq")) {
+			TabBnq v$entite = (TabBnq) p$entite;
+			defaultVue.getEntiteCourante().setTabBnq(v$entite);
+		}
+		
+		if (v$propriete.equals("tabPaysOri")) {
+			TabPays v$entite = (TabPays) p$entite;
+			defaultVue.getEntiteCourante().setTabPaysOri(v$entite);
+		}
+		
+		if (v$propriete.equals("tabPaysPro")) {
+			TabPays v$entite = (TabPays) p$entite;
+			defaultVue.getEntiteCourante().setTabPaysPro(v$entite);
+		}
+		
+	}
+		
+	@SuppressWarnings("unchecked")
+	@Override
+	public String gotoRelatedEntity() {
+			
+		// Determine vers quelle page ou Formulaire l'on doit se diriger
+		String v$navigation = super.gotoRelatedEntity();
+		/*
+		 * Recuperation du controleur 
+		 * NB: 
+		 * 	1-Cette méthode suppose que le controleur est bel et bien dans le Scope Session
+		 * 	2-Par ailleurs il devrait normalement déja existé du fait du passage de paramètres dans la page web
+		 */
+		GesComCtrl<BaseEntity, BaseEntity> v$controleur  =  (GesComCtrl<BaseEntity, BaseEntity>) FacesUtil.getSessionMapValue(GesComToolBox.getManagedBeanName(v$navigation));
+
+		return v$navigation;
+	}
+
+	public void setProduit(TabPro produit) {
+		this.produit = produit;
+	}
+
+	public TabPro getProduit() {
+		return produit;
+	}	
+		
+	public String ajouterProduit(){
+		
+		totalDvs = totalDvs.add(produit.getValPrixDvs());
+		totalCfa = totalCfa.add(produit.getValPrixCfa());
+		
+		produit.setValTotalPrixDev(totalDvs);
+		produit.setValTotalPrixCfa(totalCfa);
+		
+		System.out.println("AutSpeImpCtrl.ValTotalPrixDev : "+totalDvs);
+		System.out.println("AutSpeImpCtrl.ValTotalPrixCfa : "+produit.getValTotalPrixCfa());
+		
+		System.out.println("AutSpeImpCtrl.ajouterProduit produit : "+produit.getLibPro());
+		((AutSpeImpVue)getDefaultVue()).getProduitMgr().add(produit);
+		System.out.println("AutSpeImpCtrl.ajouterProduit() taille : "+((AutSpeImpVue)defaultVue).getProduitMgr().getListeRecherche().size());
+		mapPro.put(produit.getLibPro(), produit);
+		
+		System.out.println("AutSpeImpCtrl.ValTotalPrixDev : "+totalDvs);
+		System.out.println("AutSpeImpCtrl.ValTotalPrixCfa : "+produit.getValTotalPrixCfa());
+		
+		initialiserProduit();
+		return null;
+	}
+
+	public String supprimerProduit() {
+        
+		AutSpeImpVue v$vue = (AutSpeImpVue) defaultVue;
+		TabPro produit =  v$vue.getProduitMgr().getEntiteSelectionne();
+		System.out.println("je suis ici"+produit.getLibPro());
+		
+		totalDvs = totalDvs.subtract(produit.getValPrixDvs());
+		totalCfa = totalCfa.subtract(produit.getValPrixDvs());
+		
+		produit.setValTotalPrixDev(totalDvs);
+		produit.setValTotalPrixCfa(totalCfa);
+		
+		v$vue.getProduitMgr().remove(produit);
+		mapPro.remove(produit.getLibPro());
+		
+		return null;
+	}
+	
+	
+	
+	public void initialiserProduit(){
+		  produit = new TabPro();
+	}
+	
+	public String effacerPiece(){
+		initialiserProduit();
+		return "ok";
+	}
+
+	/**
+	 * Permet de naviguer vers le formulaire de Consultaton afin de consulter  les informations relatives à une entité 
+	 * 
+	 * @return
+	 */
+	public String afficher(){
+		
+		String v$navigation = null;
+		try {	
+		// L'entité selectionné devient l'objet courant; Cela suppose que le Contexte de page est Liste
+		defaultVue.setEntiteCourante(defaultVue.getTableMgr().getEntiteSelectionne());
+		
+		// Par simple Prudence, on dira si l'entite existe
+		if(defaultVue.getEntiteCourante() != null){
+			
+			// Mise à jour de la navigation : Vers le formulaire de Details
+			v$navigation =  getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_DETAILS);
+			
+			// MAJ de l'ID à display
+			setIdEntityToDisplay(defaultVue.getEntiteCourante().getId());
+		}
+		
+		// Recherche des produits de l'ordre
+		List<TabPro> liste = ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherProduitParNumAut(defaultVue.getEntiteCourante().getNumAut());
+		((AutSpeImpVue)defaultVue).getProduitMgr().clear();
+		((AutSpeImpVue)defaultVue).getProduitMgr().add(liste);
+		
+		// Mise en cohérence des IMH
+		coherenceIHM();
+		
+	}	
+	catch (Exception e) {	
+		e.printStackTrace();
+		//Message utilisateur
+		FacesUtil.addWarnMessage("TRAITEMENT_ALL_ECHEC", "TRAITEMENT_ALL_ECHEC_INCONNU");
+		getLogger().error(e.getMessage(), e);
+	}		
+		// Retour à la page adéquate
+		return v$navigation;
+	}
+	
+	
+	/***
+	 * Enregistre la création ou la modification d'une entité 
+	 * 
+	 * @return
+	 */
+	
+	@SuppressWarnings("finally")
+	@Override
+	public String enregistrer(){
+		
+		// Determine vers quelle page ou Formulaire l'on doit se diriger
+		String v$navigation = null;
+				
+		getLogger().debug("DEBUG méthode enregistrer!");
+		
+		try {
+			
+			// Si nous sommes en Création sur le Formulaire d'Edition
+			if(! defaultVue.getNavigationMgr().getEnModification()){
+				// Set la liste des produits de l'ordre de transport
+				defaultVue.getEntiteCourante().setListPro(((AutSpeImpVue)defaultVue).getProduitMgr().getListeRecherche());
+				// Consommation de l'EJB distant pour la création
+				defaultVue.setEntiteCourante((TabAutSpeImp) getEntitySvco().creer(defaultVue.getEntiteCourante()));
+								
+				// Raffraîchissement de l'entité courante pour des besoins de mises à jour des entités liés s'il y'en a				
+				defaultVue.setEntiteCourante((TabAutSpeImp) getEntitySvco().rechercher(defaultVue.getEntiteCourante(), defaultVue.getEntiteCourante().getId()));
+				
+				getLogger().debug("DEBUG rechercher");
+				
+				// MAJ de la liste de Recherche
+				defaultVue.getTableMgr().add(defaultVue.getEntiteCourante());					
+				
+				// Après un enregistrement nous retournons toujours en consultation 
+				v$navigation = getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_DETAILS);
+				
+				FacesUtil.addInfoMessage("","CREATION_SUCCESS");
+											
+			}
+			
+			// Par contre Si nous sommes en modification sur le Formulaire d'Edition
+			else{
+				//Récupére la liste de tous les produits en modification
+				List<TabPro> listPro = ((AutSpeImpVue)defaultVue).getProduitMgr().getListeRecherche();
+				//Charge la liste dans un map
+				Map<String, TabPro> mapProMod = new HashMap<String, TabPro>();
+				for(TabPro proCurrent : listPro){
+					mapProMod.put(proCurrent.getLibPro(), proCurrent);
+				}
+				// Recherche des produits de l'ordre déjà exixtant
+				List<TabPro> liste = ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherProduitParNumAut(defaultVue.getEntiteCourante().getNumAut());
+				//On parcour la liste des produits exixtant et on les retire du map
+				for(TabPro proToRemove : liste){
+					if(mapProMod.containsKey(proToRemove.getLibPro())){
+						mapProMod.remove(proToRemove.getLibPro());
+					}
+				}
+				List<TabPro> newPro = new ArrayList<TabPro>(mapProMod.values());
+				defaultVue.getEntiteCourante().setListPro(newPro);
+				
+				// Set la liste des produits de l'ordre de transport
+//				defaultVue.getEntiteCourante().setListCon(((AutSpeImpVue)defaultVue).getproduitMgr().getListeRecherche());
+				
+				// Consommation de l'EJB distant pour la création 
+				defaultVue.setEntiteCourante((TabAutSpeImp) getEntitySvco().modifier(defaultVue.getEntiteCourante()));
+				
+				// Raffraîchissement de l'entité courante pour des besoins de mises à jour des entités liés s'il y'en a				
+				defaultVue.setEntiteCourante((TabAutSpeImp) getEntitySvco().rechercher(defaultVue.getEntiteCourante(), defaultVue.getEntiteCourante().getId()));
+			
+				// MAJ de la liste de Recherche
+				defaultVue.getTableMgr().replace(defaultVue.getEntiteTemporaire(), defaultVue.getEntiteCourante());
+				
+				
+				// Après un enregistrement nous retournons toujours en consultation 
+				v$navigation = getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_DETAILS);
+						
+				FacesUtil.addInfoMessage("", "MODIFICATION_SUCCESS");
+			
+			}	
+			// Recherche des produits de l'ordre
+			List<TabPro> liste = ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherProduitParNumAut(defaultVue.getEntiteCourante().getNumAut());
+			getLogger().debug("DEBUG enregistrer : liste = " + liste.size());
+			((AutSpeImpVue)defaultVue).getProduitMgr().clear();
+			((AutSpeImpVue)defaultVue).getProduitMgr().add(liste);
+			
+			mapPro.clear();
+
+			// Coherence IHM avant affichage du formulaire de consultation
+//			coherenceIHM();
+		}	
+		
+		catch (Exception e) {	
+			
+			e.printStackTrace();
+			// Aucune navigation possible
+			v$navigation = null;
+			
+			//Message utilisateur
+			FacesUtil.addWarnMessage("TRAITEMENT_ALL_ECHEC", "TRAITEMENT_ALL_ECHEC_INCONNU");
+			getLogger().error(e.getMessage(), e);
+		}		
+				
+		finally{
+			
+			// Retour à la page adéquate	
+			return v$navigation;
+		}	
+		
+	}	
+	
+	/**
+	 * Permet de naviguer vers le formulaire d'Edition afin de creer une nouvelle entité
+	 * 
+	 * @return
+	 */
+	public String ajouter(){
+		
+		((AutSpeImpVue)defaultVue).getProduitMgr().clear();
+		mapPro.clear();
+		
+		// Determine vers quelle page ou formulaire l'on doit se diriger
+		String v$navigation = null;
+		
+		// Mise à jour de l'entité courante selon le contexte du Formulaire 
+		if(defaultVue.getNavigationMgr().isFromListe())
+			defaultVue.setEntiteCourante(defaultVue.getTableMgr().getEntiteSelectionne());		
+		
+		// Sauvegarde de l'entité courante 
+		defaultVue.setEntiteTemporaire(defaultVue.getEntiteCourante());
+		
+		// L'entité courante devient vierge afin qu'aucunes données ne s'affichent sur l'interface graphique 
+		defaultVue.setEntiteCourante(defaultVue.getNewEntity());
+		
+		// Mise à jour du Contexte : En création 
+		defaultVue.getNavigationMgr().setEnModification(false);
+		
+		// Mise à jour de la navigation : Vers le formulaire d'Edition
+		v$navigation =  getMemoEntite().concat("Edition");
+		
+		// Retour à la page adéquate
+		return v$navigation;
+	}	
+	
+	/***
+	 * Annule la modification ou la création d'une entité 
+	 * 
+	 * @return
+	 */
+	public String annulerEdition(){
+		try {
+			mapPro.clear();
+			// Determine vers quelle page ou Formulaire l'on doit se diriger
+			String v$navigation = null;
+			
+			// Restauration de l'entité temporairement sauvegardé
+			defaultVue.setEntiteCourante(defaultVue.getEntiteTemporaire());
+			
+			// Si nous sommes parti du Formulaire Details vers le Formulaire d'Edition
+			if(defaultVue.getNavigationMgr().isFromDetails()){
+				
+				// Alors nous retournons vers le formulaire Details
+				v$navigation = getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_DETAILS);
+				// Recherche des produits de l'ordre
+				List<TabPro>	liste = ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherProduitParNumAut(defaultVue.getEntiteCourante().getNumAut());
+				getLogger().debug("DEBUG enregistrer : liste = " + liste.size());
+				((AutSpeImpVue)defaultVue).getProduitMgr().clear();
+				((AutSpeImpVue)defaultVue).getProduitMgr().add(liste);
+				
+				//Mise en Cohérence des IHMs avant de retourner sur le formulaire de Consultation
+			}	
+			
+			// Sinon nous retournons vers le formulaire Liste 
+			else {
+				
+				// Alors nous retournons vers le formulaire Liste
+				v$navigation = getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_LISTE);
+				
+			}
+			
+			// Retour à la page adéquate	
+			return v$navigation;
+		
+		} catch (GesComAppException e) {
+			e.printStackTrace();
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * Permet de Naviguer vers le formulaire d'Edition afin de pouvoir modifier une entité 
+	 * 	
+	 * @return
+	 */
+	public String modifier(){
+		
+		mapPro.clear();
+		// Determine vers quelle page ou formulaire l'on doit se diriger
+		String v$navigation = null;
+			
+		// Mise à jour du Contexte : En Modification 
+		defaultVue.getNavigationMgr().setEnModification(true);
+		
+		// Mise à jour de l'entité courante selon le contexte du Formulaire 
+		if(defaultVue.getNavigationMgr().isFromListe())
+			defaultVue.setEntiteCourante(defaultVue.getTableMgr().getEntiteSelectionne());
+		
+		
+		// Sauvegarde de l'entité courante 
+		defaultVue.setEntiteTemporaire(defaultVue.getEntiteCourante());
+		
+		// Clone de l'Entité courante avant Modification
+		defaultVue.setEntiteCourante(defaultVue.clone(defaultVue.getEntiteCourante()));
+		
+							
+		// Si nous sommes en Consultation ==> sur le formulaire Details
+		// Donc l'entité courante est déja connue
+		if(defaultVue.getNavigationMgr().isFromDetails()){
+									
+			// Mise à jour de la navigation : Vers le formulaire d'Edition
+			v$navigation =  getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_EDITION);			
+		}
+		
+		// Par contre si nous sommes sur le formulaire Liste 
+		else if(defaultVue.getNavigationMgr().isFromListe()){
+						
+			// Par simple Prudence, on dit si l'entite existe
+			if(defaultVue.getEntiteCourante() != null){
+												
+				// Mise à jour de la navigation : Vers le formulaire d'Edition
+				v$navigation =  getMemoEntite().concat(CoreConstants.SUFFIXE_NVGT_EDITION);				
+			}
+		}
+		// Recherche des produits de l'ordre
+		try {
+			List<TabPro> liste = ImpSvcoDelegaute.getSvcoAutSpeImp().rechercherProduitParNumAut(defaultVue.getEntiteCourante().getNumAut());
+			getLogger().debug("DEBUG enregistrer : liste = " + liste.size());
+			((AutSpeImpVue)defaultVue).getProduitMgr().clear();
+			((AutSpeImpVue)defaultVue).getProduitMgr().add(liste);
+		} catch (GesComAppException e) {
+			e.printStackTrace();
+		} catch (ServiceLocatorException e) {
+			e.printStackTrace();
+		}
+		
+		
+		// Retour à la page adéquate
+		return v$navigation;
+	}	
+	
+	public BigDecimal getTotalDvs() {
+		return totalDvs;
+	}
+
+	public void setTotalDvs(BigDecimal totalDvs) {
+		this.totalDvs = totalDvs;
+	}
+
+	public BigDecimal getTotalCfa() {
+		return totalCfa;
+	}
+
+	public void setTotalCfa(BigDecimal totalCfa) {
+		this.totalCfa = totalCfa;
+	}
+	
+	/**
+	 * Génére une autorisation d'importation
+	 * 
+	 * @return un message  sur l'état de l'opération
+	 */
+	@SuppressWarnings("finally")
+	public String genererAutImp() {
+
+		// Determine vers quelle page ou Formulaire l'on doit se diriger
+		String v$navigation = null;
+
+		// Message d'information
+		String v$msgDetails = "GENERATION_SUCCES";
+
+		try {
+			OrdVue v$vue = (OrdVue) defaultVue;
+
+			// Mise à jour de l'entité courante selon le contexte du Formulaire
+			defaultVue.setEntiteCouranteOfPageContext();
+
+			// Sauvegarde de l'entité avant traitement specifique
+			defaultVue.setEntiteTemporaire(defaultVue.getEntiteCourante());
+
+			// Spécification du type de génération du fichier
+			OutputType outputType = OutputType.PDF;
+
+			// Consommation du service distant
+			TabOrd ordCourant = defaultVue.getEntiteCourante();
+			EntFichier v$fichier = MouvSvcoDelegaute.getSvcoOrd().genererEtatOrdTrans(ordCourant);
+
+			// création de dossier et fichiers temporaires et affichage de
+			// l'état généré
+			v$navigation = preview(v$fichier, outputType.getExtension());
+			
+			// L'on remplace l'ancienne entité de la liste par la nouvelle issue
+			// du résultat du traitement spécifiques
+			 defaultVue.getTableMgr().replace(defaultVue.getEntiteTemporaire(),
+					 defaultVue.getEntiteCourante());
+
+			// Si nous sommes en Consultation ==> sur le formulaire Details
+			if (defaultVue.getNavigationMgr().isFromDetails()) {
+				// Traitements particuliers
+			}
+
+			// Par contre si nous sommes sur le formulaire Liste
+			else if (defaultVue.getNavigationMgr().isFromListe()) {
+				// Traitements particuliers
+			}
+			FacesUtil.addInfoMessage("GENERATION_SUCCES", v$msgDetails);
+
+		} catch (GeveeAppException e) {
+			// Aucune navigation possible
+			v$navigation = null;
+
+			// Message utilisateur
+			FacesUtil
+					.addWarnMessage("TRAITEMENT_ALL_ECHEC", e.getMessage());
+			getLogger().error(e.getMessage(), e);
+		} catch (Exception e) {
+			// Aucune navigation possible
+			e.printStackTrace();
+			v$navigation = null;
+			// Message utilisateur
+			FacesUtil
+					.addWarnMessage(
+							"TRAITEMENT_ALL_ECHEC","TRAITEMENT_ALL_ECHEC_INCONNU");
+			getLogger().error(e.getMessage(), e);
+		} finally {
+			// Retour à la page adéquate
+			return v$navigation;
+		}
+
+	}
+	
+}

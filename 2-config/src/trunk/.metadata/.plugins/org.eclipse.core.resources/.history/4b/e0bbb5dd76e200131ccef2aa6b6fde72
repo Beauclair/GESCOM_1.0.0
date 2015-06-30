@@ -1,0 +1,100 @@
+package com.mincom.gescom.be.imp.serialiaze;
+
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.entity.TabPro;
+
+public class SrlImportationElt {
+	
+	/**
+	 * Valeur à l'erreur
+	 */
+	private static String ERROR_VALUE = "";
+
+	private String numdi;
+	private String importateur;
+	private String adrImport;
+	private String bpImport;
+	private String faxImport;
+	private String telImport;
+	private String paysImport; 
+	private String ntrActiviteDeclare;
+	private String cActivite;
+	private String cniu;
+	private String fournisseur;
+	private String adrfour;
+	private String bpfour;
+	private String faxfour;
+	private String telfour;
+	private String paysfour ;
+	private String transitaire ;
+	private String domiciliation ;
+	private String devise;
+	private String taux;
+	private String vMntDevis;
+	private String vMntCfa ;
+	private String motifImport;
+	private String paysOrigine;
+	private String paysProvenance;
+	private String modalitePaie;
+	private String modeTransport;
+	private String bureauDouane;
+	private String emailImport;
+	private String emailFour;
+	private String ntrProduit;
+	private String lmarchan;
+	private String cPosTarifaire;
+	private String colisage;
+	private String qte;
+	private String poids;
+	
+	public SrlImportationElt(){
+		
+	}
+	
+	public SrlImportationElt(TabAutSpeImp aut, TabPro pro){
+		
+		try {this.numdi = aut.getNumAut();
+		}catch (Exception e) { this.numdi=ERROR_VALUE ;
+		}
+		
+		try {this.importateur = aut.getTabImp().getLibImp();
+		}catch (Exception e) { this.importateur=ERROR_VALUE ;
+		}
+		
+		try {this.adrImport = aut.getTabImp().getLibAdr();
+		}catch (Exception e) { this.adrImport=ERROR_VALUE ;
+		}
+		
+		try {this.bpImport = aut.getTabImp().getLibBoiPos();
+		}catch (Exception e) { this.bpImport=ERROR_VALUE ;
+		}
+		
+		try {this.faxImport = aut.getTabImp().getLibFax();
+		}catch (Exception e) { this.faxImport=ERROR_VALUE ;
+		}
+		
+		try {this.telImport = aut.getTabImp().getLibTel();
+		}catch (Exception e) { this.telImport=ERROR_VALUE ;
+		}
+		
+		try {this.paysImport = "";
+		}catch (Exception e) { this.paysImport=ERROR_VALUE ;
+		}
+		
+		try {this.ntrActiviteDeclare = aut.getTabAct().getLibNatActDec();
+		}catch (Exception e) { this.ntrActiviteDeclare=ERROR_VALUE ;
+		}
+		
+		try {this.cActivite = aut.getTabAct().getNumCodAct();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		try {this.cniu = aut.getTabImp().getCodNiu();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		
+	}	
+
+
+}

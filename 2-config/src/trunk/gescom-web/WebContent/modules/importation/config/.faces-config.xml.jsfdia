@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AutSpeImpDetails::#modules#importation#pages#AutSpeImpDetails.xhtml"
+    NAME="output"
+    PATH="/modules/importation/pages/AutSpeImpDetails.xhtml"
+    TARGET="rules:#modules#importation#pages#AutSpeImpDetails.xhtml"
+    TITLE="AutSpeImpDetails" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="AutSpeImpEdition::#modules#importation#pages#AutSpeImpEdition.xhtml"
+    NAME="output1"
+    PATH="/modules/importation/pages/AutSpeImpEdition.xhtml"
+    TARGET="rules:#modules#importation#pages#AutSpeImpEdition.xhtml"
+    TITLE="AutSpeImpEdition" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="AutSpeImpListe::#modules#importation#pages#AutSpeImpListe.xhtml"
+    NAME="output2"
+    PATH="/modules/importation/pages/AutSpeImpListe.xhtml"
+    TARGET="rules:#modules#importation#pages#AutSpeImpListe.xhtml"
+    TITLE="AutSpeImpListe" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="DecImpDetails::#modules#importation#pages#DecImpDetails.xhtml"
+    NAME="output3" PATH="/modules/importation/pages/DecImpDetails.xhtml"
+    TARGET="rules:#modules#importation#pages#DecImpDetails.xhtml"
+    TITLE="DecImpDetails" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="DecImpEdition::#modules#importation#pages#DecImpEdition.xhtml"
+    NAME="output4" PATH="/modules/importation/pages/DecImpEdition.xhtml"
+    TARGET="rules:#modules#importation#pages#DecImpEdition.xhtml"
+    TITLE="DecImpEdition" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="DecImpListe::#modules#importation#pages#DecImpListe.xhtml"
+    NAME="output5" PATH="/modules/importation/pages/DecImpListe.xhtml"
+    TARGET="rules:#modules#importation#pages#DecImpListe.xhtml"
+    TITLE="DecImpListe" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#modules#importation#pages#AutSpeImpListe.xhtml"
+  PATH="/modules/importation/pages/AutSpeImpListe.xhtml"
+  SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#importation#pages#AutSpeImpEdition.xhtml"
+  PATH="/modules/importation/pages/AutSpeImpEdition.xhtml"
+  SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#importation#pages#AutSpeImpDetails.xhtml"
+  PATH="/modules/importation/pages/AutSpeImpDetails.xhtml"
+  SHAPE="272,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#importation#pages#DecImpListe.xhtml"
+  PATH="/modules/importation/pages/DecImpListe.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#importation#pages#DecImpEdition.xhtml"
+  PATH="/modules/importation/pages/DecImpEdition.xhtml"
+  SHAPE="304,641,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#importation#pages#DecImpDetails.xhtml"
+  PATH="/modules/importation/pages/DecImpDetails.xhtml"
+  SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+   
+
+    <f:view locale="#{localeCtrl.actual}" />
+  	<ui:composition template="/shared/templates/templateFormulaireDetails.xhtml">
+  	
+		<ui:param name="managedBean" value="#{sessionScope[decImpCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" d'une déclaration d'importation" />
+		
+		
+		<ui:define name="ecranPrincipalContenu">
+		
+			<!--  Zone Infos sur l'autorisation -->	
+			
+				<h:panelGroup>
+				<fieldset>
+				<legend> <h:outputText value="Decorisation" styleClass="legend" /> </legend>
+				<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+				    
+				    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+						
+						<h:outputText value="Code de l'autorisation" />
+						<h:inputText id="inpt_coddec" value="#{decImpCtrl.defaultVue.entiteCourante.codDec}" style="width: 20%" 
+							readonly="true" title="Code de l'autorisation" disabled="false">
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>	
+					
+						<h:outputText value="Numéro de l'autorisation" />
+						<h:inputText id="inpt_numdec" value="#{decImpCtrl.defaultVue.entiteCourante.numDec}" style="width: 20%" 
+							readonly="true" 
+							title="Numéro de l'autorisation" disabled="false">
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>	
+					
+					</h:panelGrid>
+					
+					<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					</h:panelGrid>
+					
+			</h:panelGrid>
+			</fieldset>
+			</h:panelGroup>
+			
+			<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Importateur" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Nom de la société" />
+					<h:panelGroup>
+					<h:inputText id="inpt_niu" value="#{decImpCtrl.defaultVue.entiteCourante.tabImp.codNiu}" style="width: 30%" 
+						readonly="true" title="Numéro d'identification unique" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_linnom" value="#{decImpCtrl.defaultVue.entiteCourante.tabImp.libImp}" style="width: 30%" 
+							readonly="true" 
+							title="Nom de la société" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+				<h:outputText value="Nature de l'activité déclarée" />
+				<h:panelGroup>
+					<h:inputText id="inpt_actdec" value="#{decImpCtrl.defaultVue.entiteCourante.tabAct.numCodAct}" style="width: 30%" 
+						readonly="true" 
+						title="Numéro du code de l'activité" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libact" value="#{decImpCtrl.defaultVue.entiteCourante.tabAct.libNatActDec}" style="width: 30%" 
+							readonly="true"  
+							title="Nature de l'activité déclarée" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+			</h:panelGrid>
+			
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Fournisseur" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Nom de la société" />
+					<h:panelGroup>
+						<h:inputText id="inpt_codfour" value="#{decImpCtrl.defaultVue.entiteCourante.tabFour.codFour}" style="width: 30%" 
+							readonly="true" 
+							title="Code fournisseur" disabled="false">
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>	
+						<h:inputText id="inpt_libfour" value="#{decImpCtrl.defaultVue.entiteCourante.tabFour.libFour}" style="width: 30%" 
+								readonly="true"  
+								title="Nom de la société" disabled="false"> 
+								<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+					</h:panelGroup>
+				
+				<h:outputText value="Transitaire agrée" />
+				<h:panelGroup>
+					<h:inputText id="inpt_codtrans" value="#{decImpCtrl.defaultVue.entiteCourante.tabTrans.codTrans}" style="width: 30%" 
+						readonly="true" 
+						title="Code transitaire" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libtrans" value="#{decImpCtrl.defaultVue.entiteCourante.tabTrans.libTrans}" style="width: 30%" 
+							readonly="true"  
+							title="Transitaire agrée" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+			
+				<h:outputText value="Domiciliation (Banque)" />
+				<h:panelGroup>
+					<h:inputText id="inpt_codbnq" value="#{decImpCtrl.defaultVue.entiteCourante.tabBnq.codBnq}" style="width: 30%" 
+						title="Code banque" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libbnq" value="#{decImpCtrl.defaultVue.entiteCourante.tabBnq.libBnq}" style="width: 30%" 
+							readonly="true"  
+							title="Libellé banque" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+			</h:panelGrid>
+			
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Decres renseignements" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Motif de l'importation"  />
+					<h:inputText id="inpt_motif"  value="#{entiteCourante.libMotif}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Date de saisie" />						
+					<rich:calendar value="#{entiteCourante.datesDec}" inputStyle="width: 30%"  title="Date de saisie" 
+							styleClass="selectDate"  datePattern="dd/MM/yyyy" readonly="true">
+						<a4j:support event="onchanged" ajaxSingle="true" />
+					</rich:calendar>
+					
+					<h:outputText value="Pays d'origine" />
+					<h:inputText id="inpt_libpaysor" value="#{decImpCtrl.defaultVue.entiteCourante.tabPaysOri.libPays}" style="width: 40%" 
+							readonly="true"  
+							title="Pays d'origine" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				
+					<h:outputText value="Pays de provenance" />
+					<h:inputText id="inpt_libpayspro" value="#{decImpCtrl.defaultVue.entiteCourante.tabPaysPro.libPays}" style="width: 40%" 
+							readonly="true"  
+							title="Pays de provenance" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				
+				</h:panelGrid>
+				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+				
+					<h:outputText value="Bureau de dédouanement"  />
+					<h:inputText id="inpt_burdet"  value="#{entiteCourante.libBurDed}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Modalités de paiement"  />
+					<h:inputText   value="#{entiteCourante.LEnuModPaie}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Mode de transport"  />
+					<h:inputText   value="#{entiteCourante.LEnuModTrans}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Relations avec le fournisseur"  />
+					<h:inputText   value="#{entiteCourante.LEnuRelFour}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+				</h:panelGrid>
+				
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Nature des Produits Importés" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+				
+					<h:outputText value="Intitulé principal "  />
+					<h:panelGroup>
+						<h:inputText id="inpt_libin"  value="#{entiteCourante.libInt}" style="width: 60%" readonly="true">
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+						<rich:message for="inpt_libin" errorClass="msg_error" />							
+					</h:panelGroup>	
+					
+					<h:outputText value="Devise"  />
+					<h:panelGroup>
+						<h:inputText   value="#{entiteCourante.codDvs}" style="width: 20%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+						<h:inputText   value="#{entiteCourante.libDvs}" style="width: 20%" readonly="true" > 
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+					</h:panelGroup>
+					
+					<h:outputText value="Taux devise" rendered="#{! empty decImpCtrl.defaultVue.entiteCourante.libDvs}"/>
+					<h:inputText id="inpt_taux" value="#{entiteCourante.tauxDvs}"  styleClass="money"  rendered="true"
+						 required="false" style="width: 20%" 
+						  title="Taux devise"
+						 converterMessage="#{msg['erreur.conversion.entiere']}"  >
+					</h:inputText>
+					
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+				</h:panelGrid>
+				
+			</h:panelGrid>
+			
+			<h:panelGroup>
+					<fieldset>
+					<legend> <h:outputText value="Liste des produits" styleClass="legend" /> </legend>	
+				 	 
+				 	 	<rich:panel  id="pnel_table_produit" >
+				 	 	
+				 	 		<h:panelGroup rendered="true"  >
+				 	 		
+				 	 			<h:outputText value="Liste des produits (#{defaultVue.produitMgr.rowCount})  " />	
+				 	 			<rich:dataTable id="tble_table_produit" 
+					 	 			value="#{defaultVue.produitMgr.dataModel}"  
+					 	 			var="entity" 
+					 	 			width="100%"  
+									rows="#{defaultVue.produitMgr.rows}"  
+									onRowClick="selectedRow=this;" 
+									selection="#{defaultVue.produitMgr.selection}"				
+									tableState="#{defaultVue.produitMgr.tableState}" 
+									selectionMode="#{defaultVue.produitMgr.selectionMode}" 
+									cellpadding="0" 
+									cellspacing="0" 
+									border="0">
+									
+									<rich:column label="Liste détaillée"  visible="true" rendered="true"  width="150">
+										<f:facet name="header">
+											<h:outputText value="Liste détaillée" title="Liste détaillée" />
+										</f:facet>
+										<h:outputText value="#{entity.libPro}" />				
+									</rich:column>
+									
+									<rich:column label="Position tarifaire"  visible="true" rendered="true"  width="150">
+										<f:facet name="header">
+											<h:outputText value="Position tarifaire" title="Position tarifaire" />
+										</f:facet>
+										<h:outputText value="#{entity.libPosiTarif}" />				
+									</rich:column>
+									
+									<rich:column label="Colisage"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Colisage" title="Colisage" />
+										</f:facet>
+										<h:outputText value="#{entity.libColi}" />				
+									</rich:column>
+									
+									<rich:column label="Quantité"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Quantité" title="Quantité" />
+										</f:facet>
+										<h:outputText value="#{entity.valQte}" />				
+									</rich:column>
+									
+									<rich:column label="Poids Net"  visible="true" rendered="true" width="100" >
+										<f:facet name="header">
+											<h:outputText value="Poids Net" title="Poids Net" />
+										</f:facet>
+										<h:outputText value="#{entity.libPoiNet}" />				
+									</rich:column>
+									
+									<rich:column id="optt_VMnt1" label="Valeur FOB en devise"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Valeur FOB en devise" title="Valeur FOB en devise" />
+										</f:facet>
+										<h:outputText value="#{entity.valPrixDvs}" />				
+									</rich:column>
+									
+									<rich:column id="optt_VMnt2" label="Valeur FOB en FCFA"  visible="true" rendered="true"  width="100">
+										<f:facet name="header">
+											<h:outputText value="Valeur FOB en FCFA" title="Valeur FOB en FCFA" />
+										</f:facet>
+										<h:outputText value="#{entity.valPrixCfa}" />				
+									</rich:column>
+									
+									<f:facet name="footer">
+						                
+										<rich:columnGroup >
+																					
+											<rich:column>
+												<h:outputText value="TOTAL " />
+											</rich:column>
+																																			
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											
+											<rich:column>
+												<h:panelGrid width="100%" styleClass="number" >
+													<h:outputText  id="optt_totalDvs" value="#{entity.valTotalPrixDev}"  >
+														<f:convertNumber pattern="#,###" />
+													</h:outputText>	
+												</h:panelGrid>	
+											</rich:column>
+											
+											<rich:column>
+												<h:panelGrid width="100%" styleClass="number" >
+													<h:outputText  id="optt_totalCfa" value="#{entity.valTotalPrixCfa}"  >
+														<f:convertNumber pattern="#,###" />
+													</h:outputText>	
+												</h:panelGrid>	
+											</rich:column>
+											
+										</rich:columnGroup>
+									</f:facet>	
+								</rich:dataTable>
+							<rich:datascroller for="tble_table_produit" />
+								
+				 	 		</h:panelGroup>
+				 	 		
+				 	 	</rich:panel>
+				 	 
+					</fieldset>	
+					</h:panelGroup>	
+			
+			</fieldset>
+		</h:panelGroup>
+		
+						
+	  </ui:define>	
+
+	</ui:composition>
+	
+</html>

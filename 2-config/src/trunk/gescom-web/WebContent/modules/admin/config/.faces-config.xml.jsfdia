@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="UsrDetails::#modules#admin#pages#UsrDetails.xhtml"
+    NAME="output21" PATH="/modules/admin/pages/UsrDetails.xhtml"
+    TARGET="rules:#modules#admin#pages#UsrDetails.xhtml"
+    TITLE="UsrDetails" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="UsrEdition::#modules#admin#pages#UsrEdition.xhtml"
+    NAME="output22" PATH="/modules/admin/pages/UsrEdition.xhtml"
+    TARGET="rules:#modules#admin#pages#UsrEdition.xhtml"
+    TITLE="UsrEdition" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="UsrListe::#modules#admin#pages#UsrListe.xhtml" NAME="output23"
+    PATH="/modules/admin/pages/UsrListe.xhtml"
+    TARGET="rules:#modules#admin#pages#UsrListe.xhtml" TITLE="UsrListe" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="SiteDetails::#modules#admin#pages#SiteDetails.xhtml"
+    NAME="output" PATH="/modules/admin/pages/SiteDetails.xhtml"
+    TARGET="rules:#modules#admin#pages#SiteDetails.xhtml"
+    TITLE="SiteDetails" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="SiteEdition::#modules#admin#pages#SiteEdition.xhtml"
+    NAME="output1" PATH="/modules/admin/pages/SiteEdition.xhtml"
+    TARGET="rules:#modules#admin#pages#SiteEdition.xhtml"
+    TITLE="SiteEdition" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="SiteListe::#modules#admin#pages#SiteListe.xhtml" NAME="output2"
+    PATH="/modules/admin/pages/SiteListe.xhtml"
+    TARGET="rules:#modules#admin#pages#SiteListe.xhtml"
+    TITLE="SiteListe" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#UsrEdition.xhtml"
+  PATH="/modules/admin/pages/UsrEdition.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#UsrDetails.xhtml"
+  PATH="/modules/admin/pages/UsrDetails.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#UsrListe.xhtml"
+  PATH="/modules/admin/pages/UsrListe.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#SiteListe.xhtml"
+  PATH="/modules/admin/pages/SiteListe.xhtml" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#SiteDetails.xhtml"
+  PATH="/modules/admin/pages/SiteDetails.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#admin#pages#SiteEdition.xhtml"
+  PATH="/modules/admin/pages/SiteEdition.xhtml" SHAPE="304,417,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

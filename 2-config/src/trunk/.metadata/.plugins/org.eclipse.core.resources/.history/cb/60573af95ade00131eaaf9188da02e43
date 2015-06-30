@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+
+ 	<ui:composition template="/shared/templates/templateFormulaireDetails.xhtml">
+   			
+		<ui:param name="managedBean" value="#{sessionScope[siteCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" d'un Site" />
+		
+	<!-- Definition du contenu de l'ecran principal  -->
+		<ui:define name="ecranPrincipalContenu">
+	
+			<h:panelGroup>
+				<fieldset>
+					<legend> <h:outputText value="Detail Site" styleClass="legend" />  </legend>
+
+        			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow"  >
+        							         		
+         				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+
+							<h:outputText value="Code Site"   />
+			  				<h:inputText  value="#{entiteCourante.codSite}" style="width: 95%"  readonly="true" />
+
+							<h:outputText value="Libellé"   />
+			  				<h:inputText value="#{entiteCourante.libSite}" style="width: 95%"  readonly="true"  redisplay="true" />
+
+							<h:outputText value="Description"   />
+			  				<h:inputTextarea value="#{entiteCourante.libDesc}" style="width: 95%"  readonly="true"  redisplay="true" />
+			  									
+         				</h:panelGrid>  
+         				
+         				<h:panelGrid columns="2"  width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+         				</h:panelGrid>
+         					         		         		
+         			</h:panelGrid>  
+         	
+				</fieldset>								
+			</h:panelGroup>
+
+		</ui:define>
+													
+	</ui:composition>
+	
+</html>

@@ -1,0 +1,76 @@
+package com.mincom.gescom.be.ref.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+
+@Entity
+@Table(name="TAB_IMP")
+public class TabImp extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabImp(){
+		
+	}
+	
+	public TabImp(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_IMP")
+	private String codImp;
+
+	@Column(name = "LIB_IMP")
+	private String libImp;
+	
+
+	@Override
+	public String getEntityCode() {
+		return "Imp";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodImp();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodImp((String) id);
+	}
+
+
+	@Override
+	public void validateData() {
+	}
+
+	@Override
+	public void initData() {
+	}
+
+	public void setCodImp(String codImp) {
+		this.codImp = codImp;
+	}
+
+	public String getCodImp() {
+		return codImp;
+	}
+
+	public void setLibImp(String libImp) {
+		this.libImp = libImp;
+	}
+
+	public String getLibImp() {
+		return libImp;
+	}
+
+}

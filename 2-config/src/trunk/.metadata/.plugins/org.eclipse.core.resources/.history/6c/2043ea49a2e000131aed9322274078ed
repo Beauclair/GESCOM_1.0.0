@@ -1,0 +1,13 @@
+package com.mincom.gescom.be.imp.dao;
+
+import javax.ejb.Stateless;
+
+import com.mincom.gescom.be.core.dao.base.BaseDao;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.dao.IDaoAct;
+import com.mincom.gescom.be.ref.entity.TabAct;
+
+@Stateless
+public class DaoAutSpeImp extends BaseDao<TabAutSpeImp, String> implements IDaoAutSpeImp{
+
+}

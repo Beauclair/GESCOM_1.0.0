@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+     
+  	<ui:composition template="/shared/templates/templateFormulaireListe.xhtml">
+		
+		<ui:param name="managedBean" value="#{sessionScope[proCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" des produits" />
+		
+		<!-- Criteres standards de recherche -->
+		<ui:define name="standardFilter"  >
+		
+			<h:panelGrid columns="2" width="100%"   columnClasses="pngdColMiddle" rowClasses="pngdRow" >
+			
+				<h:panelGrid columns="2" width="100%"  columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				
+					<h:outputText value="Code produit" />          				
+         			<h:inputText  value="#{proCtrl.defaultVue.entiteRecherche.codPro}" style="width: 30%" /> 
+         			
+					<h:outputText value="Libellé produit" />          				
+         			<h:inputText  value="#{proCtrl.defaultVue.entiteRecherche.libPro}" style="width: 30%" />           					           					           					   					            				            				            			
+          					           					           					   					            				            				            			        									   					           					
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%" border="0" columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				</h:panelGrid>
+														
+																																																	
+			</h:panelGrid>	
+						
+		</ui:define>
+		
+		<!-- Colonnes specifiques e l entite -->
+		<ui:define name="specificColumns"  >
+		
+			<rich:column label="Code produit" sortBy="#{entity.codPro}" filterBy="#{entity.codPro}" >
+				<f:facet name="header">
+					<h:outputText value="Code produit"  />
+				</f:facet>
+				<h:outputText value="#{entity.codPro}" />				
+			</rich:column>
+			
+			<rich:column label="Libellé produit" sortBy="#{entity.libPro}" filterBy="#{entity.libPro}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Libellé produit"  />
+				</f:facet>
+				<h:outputText value="#{entity.libPro}" />				
+			</rich:column>	
+			
+			<rich:column label="Position tarifaire" sortBy="#{entity.libPosTarif}" filterBy="#{entity.libPosTarif}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Position tarifaire"  />
+				</f:facet>
+				<h:outputText value="#{entity.libPosTarif}" />				
+			</rich:column>	
+			
+			<rich:column label="Colisage" sortBy="#{entity.libColi}" filterBy="#{entity.libColi}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Colisage"  />
+				</f:facet>
+				<h:outputText value="#{entity.libColi}" />				
+			</rich:column>	
+			
+			<rich:column label="Quantité" sortBy="#{entity.valQte}" filterBy="#{entity.valQte}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Quantité"  />
+				</f:facet>
+				<h:outputText value="#{entity.valQte}" />				
+			</rich:column>	
+			
+			<rich:column label="Poids Net" sortBy="#{entity.libPoiNet}" filterBy="#{entity.libPoiNet}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Poids Net"  />
+				</f:facet>
+				<h:outputText value="#{entity.libPoiNet}" />				
+			</rich:column>	
+			
+			<rich:column label="Valeur FOB en devise" sortBy="#{entity.valPrixDvs}" filterBy="#{entity.valPrixDvs}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Valeur FOB en devise"  />
+				</f:facet>
+				<h:outputText value="#{entity.valPrixDvs}" />				
+			</rich:column>	
+			
+			<rich:column label="Valeur FOB en F CFA" sortBy="#{entity.valPrixCfa}" filterBy="#{entity.valPrixCfa}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Valeur FOB en F CFA"  />
+				</f:facet>
+				<h:outputText value="#{entity.valPrixCfa}" />				
+			</rich:column>	
+			
+								
+		</ui:define>
+		
+	</ui:composition>
+	
+</html>

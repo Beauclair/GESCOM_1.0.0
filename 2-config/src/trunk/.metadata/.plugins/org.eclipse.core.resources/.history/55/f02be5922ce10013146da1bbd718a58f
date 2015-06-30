@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+   
+
+    <f:view locale="#{localeCtrl.actual}" />
+  	<ui:composition template="/shared/templates/templateFormulaireDetails.xhtml">
+  	
+		<ui:param name="managedBean" value="#{sessionScope[autSpeImpCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" d'une autorisation spéciale d'importation" />
+		
+		
+		<ui:define name="ecranPrincipalContenu">
+		
+			<!--  Zone Infos sur l'autorisation -->	
+			<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Importateur" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Nom de la société" />
+					<h:panelGroup>
+					<h:inputText id="inpt_niu" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabImp.codNiu}" style="width: 20%" 
+						readonly="true" title="Numéro d'identification unique" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_linnom" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabImp.libImp}" style="width: 40%" 
+							readonly="true" 
+							title="Nom de la société" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+				<h:outputText value="Nature de l'activité déclarée" />
+				<h:panelGroup>
+					<h:inputText id="inpt_actdec" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabAct.numCodAct}" style="width: 20%" 
+						readonly="true" 
+						title="Numéro du code de l'activité" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libact" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabAct.libNatActDec}" style="width: 40%" 
+							readonly="true"  
+							title="Nature de l'activité déclarée" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+		</h:panelGrid>
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Fournisseur" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Nom de la société" />
+					<h:panelGroup>
+						<h:inputText id="inpt_codfour" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabFour.codFour}" style="width: 20%" 
+							readonly="true" 
+							title="Code fournisseur" disabled="false">
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>	
+						<h:inputText id="inpt_libfour" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabFour.libFour}" style="width: 40%" 
+								readonly="true"  
+								title="Nom de la société" disabled="false"> 
+								<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+					</h:panelGroup>
+				
+				<h:outputText value="Transitaire agrée" />
+				<h:panelGroup>
+					<h:inputText id="inpt_codtrans" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabTrans.codTrans}" style="width: 20%" 
+						readonly="true" 
+						title="Code transitaire" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libtrans" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabTrans.libTrans}" style="width: 40%" 
+							readonly="true"  
+							title="Transitaire agrée" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+			
+				<h:outputText value="Domiciliation (Banque)" />
+				<h:panelGroup>
+					<h:inputText id="inpt_codbnq" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabBnq.codBnq}" style="width: 20%" 
+						title="Code banque" disabled="false">
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>	
+					<h:inputText id="inpt_libbnq" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabBnq.libBnq}" style="width: 40%" 
+							readonly="true"  
+							title="Libellé banque" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				</h:panelGroup>
+				
+		</h:panelGrid>
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Autres renseignements" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+					
+					<h:outputText value="Motif de l'importation"  />
+					<h:inputText id="inpt_motif"  value="#{entiteCourante.libMotif}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Date de saisie" />						
+					<rich:calendar value="#{entiteCourante.datesAut}" inputStyle="width: 30%"  title="Date de saisie" 
+							styleClass="selectDate"  datePattern="dd/MM/yyyy" readonly="true">
+						<a4j:support event="onchanged" ajaxSingle="true" />
+					</rich:calendar>
+					
+					<h:outputText value="Pays d'origine" />
+					<h:inputText id="inpt_libpaysor" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabPaysOri.libPays}" style="width: 40%" 
+							readonly="true"  
+							title="Pays d'origine" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				
+					<h:outputText value="Pays de provenance" />
+					<h:inputText id="inpt_libpayspro" value="#{autSpeImpCtrl.defaultVue.entiteCourante.tabPaysPro.libPays}" style="width: 40%" 
+							readonly="true"  
+							title="Pays de provenance" disabled="false"> 
+							<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+				
+				</h:panelGrid>
+				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+				
+					<h:outputText value="Bureau de dédouanement"  />
+					<h:inputText id="inpt_burdet"  value="#{entiteCourante.libBurDed}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Modalités de paiement"  />
+					<h:inputText   value="#{entiteCourante.LEnuModPaie}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Mode de transport"  />
+					<h:inputText   value="#{entiteCourante.LEnuModTrans}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					<h:outputText value="Relations avec le fournisseur"  />
+					<h:inputText   value="#{entiteCourante.LEnuRelFour}" style="width: 60%" readonly="true" > 
+						<a4j:support event="onchange" ajaxSingle="true" />
+					</h:inputText>
+					
+					
+					
+					
+					<h:outputText value="Relations avec le fournisseur"  />
+					<h:selectOneMenu id="inpt_modrelfour" value="#{entiteCourante.enuRelFour}" style="width: 60%"
+							title="Relations avec le fournisseur"  immediate="true">
+						<f:selectItems  value="#{autSpeImpCtrl.defaultVue.listeRelFour['map']}"/>
+						<a4j:support event="onchange" ajaxSingle="true" />						
+					</h:selectOneMenu>
+					
+				</h:panelGrid>
+				
+		</h:panelGrid>
+		</fieldset>
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<fieldset>
+			<legend> <h:outputText value="Nature des Produits Importés" styleClass="legend" /> </legend>
+			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+			    
+			    <h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic">
+				
+					<h:panelGroup>
+						<h:outputText value="Intitulé principal "  />
+						<ui:include src="/shared/include/required.xhtml" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="inpt_libin"  value="#{entiteCourante.libInt}" style="width: 60%" required="true"
+							requiredMessage="Valeur obligatoire" >
+							<a4j:support event="onchange" ajaxSingle="true" />
+						</h:inputText>
+						<rich:message for="inpt_libin" errorClass="msg_error" />							
+					</h:panelGroup>	
+					
+					<h:outputText value="Devise"	 />
+					<h:panelGroup>	
+						<h:selectOneMenu id="somn_dvs" value="#{entiteCourante.codDvs}" style="width: 60%" 
+										requiredMessage="Valeur obligatoire" title="site"  >
+							<f:selectItem itemLabel="" itemValue="#{null}"/>
+							<f:selectItems  value="#{autSpeImpCtrl.defaultVue.listeDevise}"/> 
+							<a4j:support event="onchange" ajaxSingle="true" actionListener="#{defaultVue.updateLibDvs}" reRender="pngp_libdvs" />						
+						</h:selectOneMenu>	
+						<rich:message for="somn_dvs" errorClass="msg_error" />
+					</h:panelGroup> 
+					
+					<h:outputText value=""	 />
+					<h:panelGroup id="pngp_libdvs">
+						<h:panelGroup>
+							<h:inputText value="#{autSpeImpCtrl.defaultVue.entiteCourante.libDvs}" style="width: 60%" readonly="true"  rendered="#{! empty autSpeImpCtrl.defaultVue.entiteCourante.libDvs}" />
+						</h:panelGroup>								
+					</h:panelGroup>
+					
+					<h:panelGroup id="taux_dvs1">
+						<h:outputText value="Taux devise" rendered="#{! empty autSpeImpCtrl.defaultVue.entiteCourante.libDvs}"/>
+					</h:panelGroup>
+					<h:panelGroup id="taux_dvs2">
+						<h:inputText id="inpt_taux" value="#{entiteCourante.tauxDvs}"  styleClass="money"  rendered="#{! empty autSpeImpCtrl.defaultVue.entiteCourante.libDvs}"
+							 required="false" style="width: 20%" 
+							  title="Taux devise"
+							 converterMessage="#{msg['erreur.conversion.entiere']}"  >
+						</h:inputText>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<fieldset>
+						<legend> <h:outputText value="Ajouter produit" styleClass="legend" /> </legend>
+							<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow">
+							    
+							  <h:form>
+					
+							<h:panelGrid columns="2" width="100%"  style="border:2px solid #{richSkin.panelBorderColor};"   >
+																					
+								<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+								
+									<h:panelGroup>
+										<h:outputText value="Libellé produit" title="Libellé produit"  />
+										<ui:include src="/shared/include/required.xhtml" />
+									</h:panelGroup>
+									<h:panelGroup>
+										<h:inputText id="inp_libpro"  immediate="true" value="#{autSpeImpCtrl.produit.libPro}" 
+											style="width: 100%"  required="true" title="Libellé produit" 
+											requiredMessage="Valeur obligatoire" >
+											<a4j:support event="onchange" ajaxSingle="true" />
+											<rich:message for="inp_libpro" errorClass="msg_error" />
+										</h:inputText>	
+									</h:panelGroup>
+									
+									<h:outputText value="Position tarifaire" title="Position tarifaire"  />
+									<h:panelGroup>
+										<h:inputText id="pos_tar"  immediate="true" value="#{autSpeImpCtrl.produit.libPosiTarif}" 
+											style="width: 100%"   title="Position tarifaire" >
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>	
+									</h:panelGroup>
+									
+									<h:outputText value="Colisage" title="Colisage"  />
+									<h:panelGroup>
+										<h:inputText id="col"  immediate="true" value="#{autSpeImpCtrl.produit.libColi}" 
+											style="width: 100%"   title="Colisage" >
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>	
+									</h:panelGroup>
+									
+									<h:outputText value="Quantité" title="Quantité"  />
+									<h:panelGroup>
+										<h:inputText id="qte"  immediate="true" value="#{autSpeImpCtrl.produit.valQte}" 
+											style="width: 100%"   title="Quantité" >
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>	
+									</h:panelGroup>
+									
+								</h:panelGrid>
+								
+								<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+								
+									<h:outputText value="Poids Net"  />
+									<h:panelGroup>
+										<h:inputText id="poids"  value="#{autSpeImpCtrl.produit.libPoiNet}" style="width: 100%"	immediate="true">
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>
+									</h:panelGroup>
+									
+									<h:outputText value="Valeur FOB en devise"  />
+									<h:panelGroup>
+										<h:inputText id="valdvs"  value="#{autSpeImpCtrl.produit.valPrixDvs}" style="width: 100%"	immediate="true">
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>
+									</h:panelGroup>
+									
+									<h:outputText value="Valeur FOB en FCFA"  />
+									<h:panelGroup>
+										<h:inputText id="valdvs"  value="#{autSpeImpCtrl.produit.valPrixCfa}" style="width: 100%"	immediate="true">
+											<a4j:support event="onchange" ajaxSingle="true" />
+										</h:inputText>
+									</h:panelGroup>
+									
+									<h:outputText value="" />
+									<h:panelGroup>
+										<a4j:commandButton  value="Ajouter" action="#{autSpeImpCtrl.ajouterProduit}" reRender="tble_table_produit" oncomplete="setTotaux();" />
+										<a4j:commandButton  value="Annuler"  action="null"  />
+									</h:panelGroup>
+									
+								</h:panelGrid>
+																
+							</h:panelGrid>
+							
+							</h:form>
+							  
+							</h:panelGrid>
+						</fieldset>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+					<fieldset>
+					<legend> <h:outputText value="Liste des produits" styleClass="legend" /> </legend>	
+				 	 
+				 	 	<rich:panel  id="pnel_table_produit" >
+				 	 	
+				 	 		<h:panelGroup rendered="true" >
+				 	 		
+				 	 			<h:outputText value="Liste des produits (#{defaultVue.produitMgr.rowCount})  " />	
+				 	 			<rich:extendedDataTable id="tble_table_produit" 
+					 	 			value="#{defaultVue.produitMgr.dataModel}"  
+					 	 			var="entity" 
+					 	 			width="100%"  
+					 	 			height="300px"  				
+									rows="#{defaultVue.produitMgr.rows}"  
+									onRowClick="selectedRow=this;" 
+									selection="#{defaultVue.produitMgr.selection}"				
+									tableState="#{defaultVue.produitMgr.tableState}" 
+									selectionMode="#{defaultVue.produitMgr.selectionMode}" 
+									cellpadding="0" 
+									cellspacing="0" 
+									border="0">
+									
+									<rich:column label="Liste détaillée"  visible="true" rendered="true"  width="150">
+										<f:facet name="header">
+											<h:outputText value="Liste détaillée" title="Liste détaillée" />
+										</f:facet>
+										<h:outputText value="#{entity.libPro}" />				
+									</rich:column>
+									
+									<rich:column label="Position tarifaire"  visible="true" rendered="true"  width="150">
+										<f:facet name="header">
+											<h:outputText value="Position tarifaire" title="Position tarifaire" />
+										</f:facet>
+										<h:outputText value="#{entity.libPosiTarif}" />				
+									</rich:column>
+									
+									<rich:column label="Acconier"  visible="true" rendered="true"  width="150">
+										<f:facet name="header">
+											<h:outputText value="Acconier" title="Acconier" />
+										</f:facet>
+										<h:outputText value="#{entity.LEnuAco}" />				
+									</rich:column>
+									
+									<rich:column label="Colisage"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Colisage" title="Colisage" />
+										</f:facet>
+										<h:outputText value="#{entity.libColi}" />				
+									</rich:column>
+									
+									<rich:column label="Quantité"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Quantité" title="Quantité" />
+										</f:facet>
+										<h:outputText value="#{entity.valQte}" />				
+									</rich:column>
+									
+									<rich:column label="Poids Net"  visible="true" rendered="true" width="100" >
+										<f:facet name="header">
+											<h:outputText value="Poids Net" title="Poids Net" />
+										</f:facet>
+										<h:outputText value="#{entity.libPoiNet}" />				
+									</rich:column>
+									
+									<rich:column id="optt_VMnt1" label="Valeur FOB en devise"  visible="true" rendered="true" width="150" >
+										<f:facet name="header">
+											<h:outputText value="Valeur FOB en devise" title="Valeur FOB en devise" />
+										</f:facet>
+										<h:outputText value="#{entity.valPrixDvs}" />				
+									</rich:column>
+									
+									<rich:column id="optt_VMnt2" label="Valeur FOB en FCFA"  visible="true" rendered="true"  width="100">
+										<f:facet name="header">
+											<h:outputText value="Valeur FOB en FCFA" title="Valeur FOB en FCFA" />
+										</f:facet>
+										<h:outputText value="#{entity.valPrixCfa}" />				
+									</rich:column>
+									
+									<rich:column>
+										<f:facet name="header">
+											<h:outputText value="" title="" />
+										</f:facet>
+										<h:panelGrid columns="1" width="100%" style="text-align:center" >	
+											<a4j:commandLink value="X"  action="#{autSpeCtrlCtrl.supprimerProduit}" reRender="tble_table_produit,pnel_table_produit" ajaxSingle="true" immediate="true"  style="COLOR: #ff0000;"
+															 title="Supprimer ce produit" oncomplete="setTotaux();" >
+												<f:setPropertyActionListener  value="#{entity.specialId}" target="#{defaultVue.produitMgr.key}"  />
+											</a4j:commandLink>
+										</h:panelGrid>																															
+									</rich:column>	
+									
+									<rich:column width="0">
+										
+									</rich:column>	
+									
+									<f:facet name="footer">
+						                
+										<rich:columnGroup >
+																					
+											<rich:column>
+												<h:outputText value="TOTAL " />
+											</rich:column>
+																																			
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											<rich:column>
+												<h:outputText value="" />
+											</rich:column>
+											
+											<rich:column>
+												<h:panelGrid width="100%" styleClass="number" >
+													<h:outputText  id="optt_totalDvs" value="0"  >
+														<f:convertNumber pattern="#,###" />
+													</h:outputText>	
+												</h:panelGrid>	
+											</rich:column>
+											
+											<rich:column>
+												<h:panelGrid width="100%" styleClass="number" >
+													<h:outputText  id="optt_totalCfa" value="0"  >
+														<f:convertNumber pattern="#,###" />
+													</h:outputText>	
+												</h:panelGrid>	
+											</rich:column>
+											
+											<rich:column width="0" rendered="true"  >
+												<h:outputText value="" />
+											</rich:column>
+										</rich:columnGroup>
+									</f:facet>	
+									
+									
+									
+									<!-- Controle du menu contextuel  -->  											 																							
+									<rich:componentControl event="onRowDblClick" for="ctmn_menu" operation="show"  />
+									
+								</rich:extendedDataTable>
+									<script type="text/javascript">																				
+										// Calcul des totaux
+										setTotaux();
+									</script>
+								<rich:datascroller for="tble_table_produit" />
+								
+				 	 		</h:panelGroup>
+				 	 		
+				 	 		<rich:contextMenu id="ctmn_menu" rendered="#{! autSpeImpCtrl.defaultVue.navigationMgr.enModification}" >
+							</rich:contextMenu>
+				 	 	
+				 	 	</rich:panel>
+				 	 
+					</fieldset>	
+					</h:panelGroup>	
+					
+				
+				</h:panelGrid>
+			</h:panelGrid>
+			</fieldset>
+		</h:panelGroup>
+		
+						
+	  </ui:define>	
+
+	</ui:composition>
+	
+</html>

@@ -1,0 +1,83 @@
+package com.mincom.gescom.be.ref.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+
+@Entity
+@Table(name="TAB_BNQ")
+public class TabBnq extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabBnq(){
+		
+	}
+	
+	public TabBnq(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_BNQ")
+	private String codBnq;
+
+	@Column(name = "LIB_BNQ")
+	private String libBnq;
+	
+	@Override
+	public String getEntityCode() {
+		return "Bnq";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodSite();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodSite((String) id);
+	}
+
+	public String getCodSite() {
+		return codSite;
+	}
+
+	public void setCodSite(String codSite) {
+		this.codSite = codSite;
+	}
+	
+	public void setLibSite(String libSIte) {
+		this.libSite = libSIte;
+	}
+
+	public String getLibSite() {
+		return libSite;
+	}
+
+	@Override
+	public void validateData() {
+	}
+
+	@Override
+	public void initData() {
+	}
+
+	public void setLibDesc(String libDesc) {
+		this.libDesc = libDesc;
+	}
+
+	public String getLibDesc() {
+		return libDesc;
+	}
+
+
+}

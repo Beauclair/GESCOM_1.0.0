@@ -1,0 +1,17 @@
+package com.mincom.gescom.be.util;
+
+import com.mincom.gescom.be.admin.entity.utilisateur.TabUsr;
+
+public class InfoUser implements Serializable{
+	
+	private TabUsr user;
+
+	public void setUser(TabUsr user) {
+		this.user = user;
+	}
+
+	public TabUsr getUser() {
+		return user;
+	}
+
+}

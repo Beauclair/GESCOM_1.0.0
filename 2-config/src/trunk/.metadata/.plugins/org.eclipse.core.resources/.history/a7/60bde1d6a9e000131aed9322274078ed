@@ -1,0 +1,10 @@
+package com.mincom.gescom.be.imp.entity;
+
+import javax.persistence.MappedSuperclass;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+
+@MappedSuperclass
+public abstract class TabImp extends GesComBaseEntity{
+
+}

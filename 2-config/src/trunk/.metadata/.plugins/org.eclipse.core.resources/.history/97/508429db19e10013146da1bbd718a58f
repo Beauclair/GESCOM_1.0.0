@@ -1,0 +1,128 @@
+package com.mincom.gescom.ui.imp.vue;
+
+
+import java.util.Map;
+
+import com.mincom.gescom.be.core.enums.EnuModPaie;
+import com.mincom.gescom.be.core.enums.EnuModTrans;
+import com.mincom.gescom.be.core.enums.EnuRelFour;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.entity.TabPro;
+import com.mincom.gescom.ui.core.base.AbstractNavigationManager;
+import com.mincom.gescom.ui.core.base.GesComToolBox;
+import com.mincom.gescom.ui.core.base.GesComVue;
+import com.mincom.gescom.ui.core.base.TableManager;
+
+public class AutSpeImpVue extends GesComVue<TabAutSpeImp>{
+	
+	private TabPro produit;
+	
+	private  Map<String, Object> listeModPaie;
+	
+	private  Map<String, Object> listeModTrans;
+	
+	private  Map<String, Object> listeRelFour;
+	
+	/**
+	 * Gestionnaire (de la liste)des produit
+	 */
+	private TableManager<TabPro> produitMgr = new TableManager<TabPro>();
+	
+	
+	public AutSpeImpVue(){
+		super();
+		// Instance des propriétés génériques héritées  
+		this.tableMgr = new TableManager();
+		this.navigationMgr = new AbstractNavigationManager();
+	}
+	
+	/**
+	 * Retourne une nouvelle Instance de l'entité  
+	 * 
+	 * @return
+	 */	
+	public static TabAutSpeImp getTabAutSpeImp (){		
+		
+		TabAutSpeImp v$AutSpeImp = new TabAutSpeImp();
+		v$AutSpeImp.setInfoUser(getInfoUser());
+		v$AutSpeImp.initData();
+		return v$AutSpeImp ;	
+	}	
+	
+	/**
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 * 
+	 * @return
+	 */
+	public static TabAutSpeImp getTabAutSpeImpForSearch (){		
+		TabAutSpeImp v$AutSpeImp = getTabAutSpeImp();
+		return v$AutSpeImp ;	
+	}	
+	
+	public TabAutSpeImp getNewEntity(){
+		return getTabAutSpeImp();
+	}
+	
+	/***
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 *  
+	 * @return
+	 */	
+	public TabAutSpeImp getEntityForSearch() {	
+		return getTabAutSpeImpForSearch();
+	}
+	
+	public void setProduit(TabPro produit) {
+		this.produit = produit;
+	}
+
+	public TabPro getProduit() {
+		return produit;
+	}
+
+	public void setProduitMgr(TableManager<TabPro> produitMgr) {
+		this.produitMgr = produitMgr;
+	}
+
+	public TableManager<TabPro> getProduitMgr() {
+		return produitMgr;
+	}	
+	
+	public void setListeModPaie(Map<String, Object> listeModPaie) {
+		this.listeModPaie = listeModPaie;
+	}
+
+	public Map<String, Object> getListeModPaie() {
+		if(listeModPaie == null){
+			listeModPaie = GesComToolBox.getComboData(EnuModPaie.getMaps());
+			listeModPaie.put("", "");
+		}
+		return listeModPaie;
+	}
+
+	public void setListeModTrans(Map<String, Object> listeModTrans) {
+		this.listeModTrans = listeModTrans;
+	}
+
+	public Map<String, Object> getListeModTrans() {
+		if(listeModTrans == null){
+			listeModTrans = GesComToolBox.getComboData(EnuModTrans.getMaps());
+			listeModTrans.put("", "");
+		}
+		return listeModTrans;
+	}
+
+	public void setListeRelFour(Map<String, Object> listeRelFour) {
+		this.listeRelFour = listeRelFour;
+	}
+
+	public Map<String, Object> getListeRelFour() {
+		if(listeRelFour == null){
+			listeRelFour = GesComToolBox.getComboData(EnuRelFour.getMaps());
+			listeRelFour.put("", "");
+		}
+		return listeRelFour;
+	}
+	
+
+}

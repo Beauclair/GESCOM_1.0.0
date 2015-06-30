@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+     
+  	<ui:composition template="/shared/templates/templateFormulaireListe.xhtml">
+		
+		<ui:param name="managedBean" value="#{sessionScope[paysCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" des pays" />
+		
+		<!-- Criteres standards de recherche -->
+		<ui:define name="standardFilter"  >
+		
+			<h:panelGrid columns="2" width="100%"   columnClasses="pngdColMiddle" rowClasses="pngdRow" >
+			
+				<h:panelGrid columns="2" width="100%"  columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				
+					<h:outputText value="Code pays" />          				
+         			<h:inputText  value="#{paysCtrl.defaultVue.entiteRecherche.codPays}" style="width: 30%" /> 
+         			
+					<h:outputText value="#{locale.libelle}" />          				
+         			<h:inputText  value="#{paysCtrl.defaultVue.entiteRecherche.libPays}" style="width: 30%" />           					           					           					   					            				            				            			
+          					           					           					   					            				            				            			        									   					           					
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%" border="0" columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				</h:panelGrid>
+														
+																																																	
+			</h:panelGrid>	
+						
+		</ui:define>
+		
+		<!-- Colonnes specifiques e l entite -->
+		<ui:define name="specificColumns"  >
+		
+			<rich:column label="Code pays" sortBy="#{entity.codPays}" filterBy="#{entity.codPays}" >
+				<f:facet name="header">
+					<h:outputText value="Code pays"  />
+				</f:facet>
+				<h:outputText value="#{entity.codPays}" />				
+			</rich:column>
+			
+			<rich:column label="#{locale.libelle} pays" sortBy="#{entity.libPays}" filterBy="#{entity.libPays}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="#{locale.libelle} pays"  />
+				</f:facet>
+				<h:outputText value="#{entity.libPays}" />				
+			</rich:column>							
+		</ui:define>
+		
+	</ui:composition>
+	
+</html>

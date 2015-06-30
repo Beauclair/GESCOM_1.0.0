@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="gevee-z-ear">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="gevee-entity.jar" deploy-path="/lib" handle="module:/resource/gevee-entity/gevee-entity">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gevee-svco-impl.jar" deploy-path="/" handle="module:/resource/gevee-svco-impl/gevee-svco-impl">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gevee-sisv-impl.jar" deploy-path="/" handle="module:/resource/gevee-sisv-impl/gevee-sisv-impl">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gevee-sisv-contract.jar" deploy-path="/lib" handle="module:/resource/gevee-sisv-contract/gevee-sisv-contract">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gevee-svco-contract.jar" deploy-path="/lib" handle="module:/resource/gevee-svco-contract/gevee-svco-contract">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gevee-dao-impl.jar" deploy-path="/" handle="module:/resource/gevee-dao-impl/gevee-dao-impl">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="barcode4j-2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/barcode4j-2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jbarcodebean-1.2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jbarcodebean-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Imager.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/Imager.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="stax-api-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/stax-api-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.0.4.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-logging-1.0.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-javaflow-20060411.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-javaflow-20060411.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="rhino-1.7R1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/rhino-1.7R1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdt-compiler-3.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jdt-compiler-3.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cglib-nodep-2.2.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/cglib-nodep-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="groovy-all-1.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/groovy-all-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-awt-util.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-awt-util.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xstream-1.3.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xstream-1.3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-xml.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-xml.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hsqldb-1.8.0-10.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/hsqldb-1.8.0-10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-svg-dom.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-svg-dom.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xalan-2.6.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xalan-2.6.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xercesImpl-2.7.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xercesImpl-2.7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="png-encoder-1.5.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/png-encoder-1.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-logging.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-util.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-util.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jcommon-1.0.15.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jcommon-1.0.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-dom.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-dom.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-anim.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-anim.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jpa.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jpa.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.8.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-beanutils-1.8.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-apis-ext.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xml-apis-ext.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jxl-2.6.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jxl-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="convertchiffrelettre.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/convertchiffrelettre.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jfreechart-1.0.12.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jfreechart-1.0.12.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-svggen.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-svggen.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-extensions-3.5.3.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jasperreports-extensions-3.5.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="saaj-api-1.3.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/saaj-api-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="google-collections-0.8.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/google-collections-0.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-gvt.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-gvt.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-2.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-collections-2.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-script.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-script.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="reflections-0.9.9-RC1-uberjar.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/reflections-0.9.9-RC1-uberjar.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="servlet.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/servlet.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ejb3-persistence.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/ejb3-persistence.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mondrian-3.1.1.12687.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/mondrian-3.1.1.12687.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-parser.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-parser.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="poi-3.2-FINAL-20081019.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/poi-3.2-FINAL-20081019.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-digester-1.7.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-digester-1.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-css.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-css.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bsh-2.0b4.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/bsh-2.0b4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate3.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/hibernate3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/commons-codec.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-2.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/spring-core-2.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="wstx-asl-3.2.7.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/wstx-asl-3.2.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jettison-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jettison-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bcel-5.2.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/bcel-5.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdom-1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jdom-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-apis.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xml-apis.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-writer-0.2.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xml-writer-0.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="stax-1.2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/stax-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-ext.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-ext.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="smslib-3.5.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/smslib-3.5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jasperreports-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xom-1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xom-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxen-1.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jaxen-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="joda-time-1.6.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/joda-time-1.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-bridge.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/batik-bridge.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.5.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/antlr-2.7.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-fonts-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jasperreports-fonts-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="opencsv-2.2.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/opencsv-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="barbecue-1.5-beta1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/barbecue-1.5-beta1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-2.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/spring-beans-2.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xpp3_min-1.1.4c.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xpp3_min-1.1.4c.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="iText-2.1.0.jar" deploy-path="/" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/iText-2.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="chiffre.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/chiffre.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ant-1.7.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/ant-1.7.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xstream-benchmark-1.3.1.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/xstream-benchmark-1.3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.15.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/log4j-1.2.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DynamicJasper-3.1.8.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/DynamicJasper-3.1.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-chart-themes-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jasperreports-chart-themes-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsmpp-2.1.0.jar" deploy-path="/lib" handle="module:/classpath/lib/D:/Projects/PERSONAL_PROJECTS/Perso/libs_be/jsmpp-2.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="iText-2.1.0.jar" deploy-path="/" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/iText-2.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jasperreports-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-apis.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xml-apis.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-css.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-css.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Imager.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/Imager.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="wstx-asl-3.2.7.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/wstx-asl-3.2.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-script.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-script.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jxl-2.6.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jxl-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jbarcodebean-1.2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jbarcodebean-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cglib-nodep-2.2.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/cglib-nodep-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdom-1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jdom-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="png-encoder-1.5.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/png-encoder-1.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="convertchiffrelettre.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/convertchiffrelettre.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxen-1.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jaxen-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xercesImpl-2.7.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xercesImpl-2.7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-awt-util.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-awt-util.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-digester-1.7.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-digester-1.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="barcode4j-2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/barcode4j-2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-logging.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsmpp-2.1.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jsmpp-2.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="barbecue-1.5-beta1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/barbecue-1.5-beta1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-svg-dom.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-svg-dom.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-writer-0.2.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xml-writer-0.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-chart-themes-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jasperreports-chart-themes-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="smslib-3.5.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/smslib-3.5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hsqldb-1.8.0-10.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/hsqldb-1.8.0-10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.0.4.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-logging-1.0.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-javaflow-20060411.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-javaflow-20060411.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="reflections-0.9.9-RC1-uberjar.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/reflections-0.9.9-RC1-uberjar.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="rhino-1.7R1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/rhino-1.7R1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DynamicJasper-3.1.8.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/DynamicJasper-3.1.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="groovy-all-1.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/groovy-all-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-anim.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-anim.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-2.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/spring-beans-2.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-codec.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdt-compiler-3.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jdt-compiler-3.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="stax-1.2.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/stax-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xom-1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xom-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.15.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/log4j-1.2.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bcel-5.2.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/bcel-5.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mondrian-3.1.1.12687.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/mondrian-3.1.1.12687.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xalan-2.6.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xalan-2.6.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-fonts-3.7.4.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jasperreports-fonts-3.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="chiffre.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/chiffre.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jcommon-1.0.15.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jcommon-1.0.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ant-1.7.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/ant-1.7.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.5.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/antlr-2.7.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-util.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-util.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="stax-api-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/stax-api-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mail.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/mail.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-dom.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-dom.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-svggen.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-svggen.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xpp3_min-1.1.4c.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xpp3_min-1.1.4c.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jettison-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jettison-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-ext.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-ext.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="google-collections-0.8.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/google-collections-0.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-parser.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-parser.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xstream-benchmark-1.3.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xstream-benchmark-1.3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jfreechart-1.0.12.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jfreechart-1.0.12.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xstream-1.3.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xstream-1.3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="poi-3.2-FINAL-20081019.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/poi-3.2-FINAL-20081019.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="joda-time-1.6.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/joda-time-1.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate3.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/hibernate3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-bridge.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-bridge.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="saaj-api-1.3.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/saaj-api-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-xml.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-xml.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ejb3-persistence.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/ejb3-persistence.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="servlet.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/servlet.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bsh-2.0b4.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/bsh-2.0b4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-2.1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-collections-2.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-2.5.5.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/spring-core-2.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xml-apis-ext.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/xml-apis-ext.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jpa.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jpa.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="opencsv-2.2.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/opencsv-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.8.0.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/commons-beanutils-1.8.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-extensions-3.5.3.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/jasperreports-extensions-3.5.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="batik-gvt.jar" deploy-path="/lib" handle="module:/classpath/lib/E:/Perso/Blaiso/GEVEE_1.0.0/2-config/bin/lib_be/batik-gvt.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gescom-dao-contrat.jar" deploy-path="/lib" handle="module:/resource/gescom-dao-contrat/gescom-dao-contrat">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

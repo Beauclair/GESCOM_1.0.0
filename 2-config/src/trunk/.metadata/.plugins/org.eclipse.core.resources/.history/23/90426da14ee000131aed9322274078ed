@@ -1,0 +1,25 @@
+package com.mincom.gescom.be.imp.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+@Entity
+@Table(name="TAB_AUT_SPE_IMP")
+public class TabAutSpeImp extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabAutSpeImp(){
+		
+	}
+	
+	public TabAutSpeImp(InfoUser infoUser){
+		
+	}
+
+}

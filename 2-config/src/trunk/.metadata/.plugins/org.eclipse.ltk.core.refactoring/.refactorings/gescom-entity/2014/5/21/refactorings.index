@@ -1,0 +1,16 @@
+1400499859837	Encapsulate field 'tabPays'
+1400562406572	Encapsulate field 'codNiu'
+1400563355712	Encapsulate field 'valPrixDvs'
+1400563915851	Encapsulate field 'libAdr'
+1400612611416	Encapsulate field 'datAut'
+1400649619112	Encapsulate field 'listPro'
+1400650672832	Rename type 'TabImp'
+1400650832373	Delete element
+1400650901924	Encapsulate field 'codGenImp'
+1400653826084	Encapsulate field 'valTotalQte'
+1400653830701	Encapsulate field 'valTotalPrixDev'
+1400698496593	Encapsulate field 'codDvs'
+1400698502494	Encapsulate field 'libDvs'
+1400698536690	Encapsulate field 'tauxDvs'
+1400850820155	Rename type 'SrlOrdTran'
+1400906224666	Copy compilation unit

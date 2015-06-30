@@ -1,0 +1,98 @@
+package com.mincom.gescom.be.imp.entity;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.be.ref.entity.TabBnq;
+import com.mincom.gescom.be.ref.entity.TabFour;
+import com.mincom.gescom.be.ref.entity.TabImp;
+import com.mincom.gescom.be.ref.entity.TabPays;
+import com.mincom.gescom.be.ref.entity.TabTrans;
+import com.mincom.gescom.be.util.InfoUser;
+
+@Entity
+@Table(name="TAB_AUT_SPE_IMP")
+public class TabAutSpeImp extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabAutSpeImp(){
+		
+	}
+	
+	public TabAutSpeImp(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_AUT")
+	private String codAut;
+	
+	@Column(name = "NUM_AUT")
+	private String numAut;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_IMP")
+	private TabImp tabImp;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_ACT")
+	private TabAct tabAct;
+
+	@ManyToOne
+	@JoinColumn(name = "COD_FOUR")
+	private TabFour tabFour;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_TRANS")
+	private TabTrans tabTrans;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_BNQ")
+	private TabBnq tabBnq;
+	
+	@Column(name = "LIB_INT")
+	private String libInt;
+	
+	@Column(name = "VAL_TOTAL_QTE")
+	private BigDecimal valTotalQte;
+	
+	@Column(name = "VAL_TOTAL_PRIX_DVS")
+	private BigDecimal valTotalPrixDev;
+	
+	@Column(name = "VAL_TOTAL_PRIX_CFA")
+	private BigDecimal valTotalPrixCfa;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_PAYS_ORI")
+	private TabPays tabPaysOri;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_PAYS_PRO")
+	private TabPays tabPaysPro;
+	
+	@Column(name = "LIB_MOTIF")
+	private String libMotif;
+	
+	@Column(name = "LIB_BUR_DED")
+	private String libBurDed;
+	
+	@Column(name = "ENU_MOD_PAIE")
+	private String enuModPaie;
+	
+	@Column(name = "ENU_MOD_TRANS")
+	private String enuModTrans;
+	
+	@Column(name = "ENU_REL_FOUR")
+	private String enuRelFour;
+	
+}

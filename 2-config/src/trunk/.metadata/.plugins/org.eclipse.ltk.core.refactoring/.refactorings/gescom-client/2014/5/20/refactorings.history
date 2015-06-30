@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.gss.gevee.cleint&apos; to &apos;com.mincom.gescom.cleint&apos;&#x0D;&#x0A;- Original project: &apos;gescom-client&apos;&#x0D;&#x0A;- Original element: &apos;gescom-client/src/com.gss.gevee.cleint&apos;&#x0D;&#x0A;- Renamed element: &apos;gescom-client/src/com.mincom.gescom.cleint&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.gss.gevee.cleint&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.gss.gevee.cleint" name="com.mincom.gescom.cleint" qualified="false" references="true" stamp="1400181508368" textual="false" version="1.0"/>
+</session>
