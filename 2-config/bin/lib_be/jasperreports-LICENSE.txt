@@ -162,4 +162,8 @@ General Public License ever published by the Free Software Foundation.
 whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
+<<<<<<< HEAD
 Library..
+=======
+Library.
+>>>>>>> 84cee43d4bf8eefa3c89956a68e2b5081585fa08
