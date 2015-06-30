@@ -1,0 +1,65 @@
+package com.mincom.gescom.ui.imp.vue;
+
+
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.ui.core.base.AbstractNavigationManager;
+import com.mincom.gescom.ui.core.base.GesComVue;
+import com.mincom.gescom.ui.core.base.TableManager;
+
+public class ActVue extends GesComVue<TabAct>{
+	
+	
+	
+	public ActVue(){
+		super();
+		// Instance des propriétés génériques héritées  
+		this.tableMgr = new TableManager();
+		this.navigationMgr = new AbstractNavigationManager();
+	}
+	
+	/**
+	 * Retourne une nouvelle Instance de l'entité  
+	 * 
+	 * @return
+	 */	
+	public static TabAct getTabAct (){		
+		
+		TabAct v$Act = new TabAct();
+		v$Act.setInfoUser(getInfoUser());
+		v$Act.initData();
+		return v$Act ;	
+	}	
+	
+	/**
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 * 
+	 * @return
+	 */
+	public static TabAct getTabActForSearch (){		
+		TabAct v$Act = getTabAct();
+		return v$Act ;	
+	}	
+	/**
+	 * Retourne un Logger pour la Classe
+	 * 
+	 * @return
+	 */
+	public BaseLogger getLogger() {
+		return BaseLogger.getLogger(ActVue.class);
+	}
+	
+	
+	public TabAct getNewEntity(){
+		return getTabAct();
+	}
+	
+	/***
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 *  
+	 * @return
+	 */	
+	public TabAct getEntityForSearch() {	
+		return getTabActForSearch();
+	}	
+}

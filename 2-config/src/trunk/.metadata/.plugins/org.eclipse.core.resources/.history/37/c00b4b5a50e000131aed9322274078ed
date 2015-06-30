@@ -1,0 +1,63 @@
+package com.mincom.gescom.be.imp.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.be.ref.entity.TabBnq;
+import com.mincom.gescom.be.ref.entity.TabFour;
+import com.mincom.gescom.be.ref.entity.TabImp;
+import com.mincom.gescom.be.ref.entity.TabPays;
+import com.mincom.gescom.be.ref.entity.TabTrans;
+import com.mincom.gescom.be.util.InfoUser;
+
+@Entity
+@Table(name="TAB_AUT_SPE_IMP")
+public class TabAutSpeImp extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabAutSpeImp(){
+		
+	}
+	
+	public TabAutSpeImp(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_AUT")
+	private String codAut;
+	
+	@Column(name = "NUM_AUT")
+	private String numAut;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_IMP")
+	private TabImp tabImp;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_ACT")
+	private TabAct tabAct;
+
+	@ManyToOne
+	@JoinColumn(name = "COD_FOUR")
+	private TabFour tabFour;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_TRANS")
+	private TabTrans tabTrans;
+	
+	@ManyToOne
+	@JoinColumn(name = "COD_BNQ")
+	private TabBnq tabBnq;
+	
+	
+}

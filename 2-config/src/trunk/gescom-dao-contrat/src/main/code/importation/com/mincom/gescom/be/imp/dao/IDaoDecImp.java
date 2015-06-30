@@ -1,0 +1,20 @@
+package com.mincom.gescom.be.imp.dao;
+
+import java.util.List;
+
+import javax.ejb.Local;
+
+import com.mincom.gescom.be.core.dao.base.IBaseDao;
+import com.mincom.gescom.be.core.exception.GesComPersistenceException;
+import com.mincom.gescom.be.imp.entity.TabDecImp;
+import com.mincom.gescom.be.ref.entity.TabPro;
+
+@Local
+public interface IDaoDecImp extends IBaseDao<TabDecImp, String>{
+
+	TabDecImp findByNumDec(String numDec) throws GesComPersistenceException;
+
+	List<TabPro> findProductByCodDec(String codDec)
+			throws GesComPersistenceException;
+
+}

@@ -1,0 +1,78 @@
+package com.mincom.gescom.be.ref.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+
+@Entity
+@Table(name="TAB_FOUR")
+public class TabFour extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabFour(){
+		
+	}
+	
+	public TabFour(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_FOUR")
+	private String codFour;
+
+	@Column(name = "LIB_FOUR")
+	private String libFour;
+	
+	@Column(name = "COD_PAYS")
+	private String codPays;
+
+	@Override
+	public String getEntityCode() {
+		return "Four";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodFour();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodFour((String) id);
+	}
+
+
+	@Override
+	public void validateData() {
+	}
+
+	@Override
+	public void initData() {
+	}
+
+	public void setCodFour(String codFour) {
+		this.codFour = codFour;
+	}
+
+	public String getCodFour() {
+		return codFour;
+	}
+
+	public void setLibFour(String libFour) {
+		this.libFour = libFour;
+	}
+
+	public String getLibFour() {
+		return libFour;
+	}
+
+}

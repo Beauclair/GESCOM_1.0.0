@@ -1,0 +1,56 @@
+package com.mincom.gescom.be.imp.serialiaze;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class SrlImportation implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Constructeur par defaut
+	 */
+	public SrlImportation() {
+		
+	}
+	/**
+	 * Liste des éléments de l'état
+	 */
+	ArrayList<SrlImportationElt> srlOrdTran;
+	
+	/**
+	 * Accesseur en lecture de la liste des éléments de l'état
+	 */
+	public ArrayList<SrlImportationElt> getSrlOrdTran() {
+		return srlOrdTran;
+	}
+
+	/**
+	 * Accesseur en modification de la liste des éléments de l'état
+	 */
+	public void setSrlOrdTran(ArrayList<SrlImportationElt> srlOrdTran) {
+		this.srlOrdTran = srlOrdTran;
+	}
+	
+	/**
+	 * Ajoute un élément dans la liste des éléments de l'état
+	 */
+	public void addElement(SrlImportationElt p$elt) {
+
+		if (srlOrdTran == null)
+			srlOrdTran = new ArrayList<SrlImportationElt>();
+		srlOrdTran.add(p$elt);
+		}
+	
+	/**
+	 * Initialise les données de l'objet
+	 */
+	public void initData() {
+		srlOrdTran = new ArrayList<SrlImportationElt>();
+	}
+
+
+}

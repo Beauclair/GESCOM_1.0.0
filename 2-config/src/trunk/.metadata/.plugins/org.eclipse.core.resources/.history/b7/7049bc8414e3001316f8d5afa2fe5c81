@@ -1,0 +1,657 @@
+package com.mincom.gescom.be.imp.serialiaze;
+
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.imp.entity.TabDecImp;
+import com.mincom.gescom.be.ref.entity.TabPro;
+
+public class SrlImportationElt {
+	
+	/**
+	 * Valeur à l'erreur
+	 */
+	private static String ERROR_VALUE = "";
+
+	private String numdi;
+	private String importateur;
+	private String adrImport;
+	private String bpImport;
+	private String faxImport;
+	private String telImport;
+	private String paysImport; 
+	private String ntrActiviteDeclare;
+	private String cActivite;
+	private String cniu;
+	private String fournisseur;
+	private String adrfour;
+	private String bpfour;
+	private String faxfour;
+	private String telfour;
+	private String paysfour ;
+	private String transitaire ;
+	private String domiciliation ;
+	private String devise;
+	private String taux;
+	private String vMntDevis;
+	private String vMntCfa ;
+	private String motifImport;
+	private String paysOrigine;
+	private String paysProvenance;
+	private String modalitePaie;
+	private String modeTransport;
+	private String relationFournisseur;
+	private String bureauDouane;
+	private String emailImport;
+	private String emailFour;
+	private String ntrProduit;
+	private String lmarchan;
+	private String cPosTarifaire;
+	private String colisage;
+	private String qte;
+	private String poids;
+	
+	public SrlImportationElt(){
+		
+	}
+	
+	public SrlImportationElt(TabAutSpeImp aut, TabPro pro){
+		
+		try {this.numdi = aut.getNumAut();
+		}catch (Exception e) { this.numdi=ERROR_VALUE ;
+		}
+		
+		try {this.importateur = aut.getTabImp().getLibImp();
+		}catch (Exception e) { this.importateur=ERROR_VALUE ;
+		}
+		
+		try {this.adrImport = aut.getTabImp().getLibAdr();
+		}catch (Exception e) { this.adrImport=ERROR_VALUE ;
+		}
+		
+		try {this.bpImport = aut.getTabImp().getLibBoiPos();
+		}catch (Exception e) { this.bpImport=ERROR_VALUE ;
+		}
+		
+		try {this.faxImport = aut.getTabImp().getLibFax();
+		}catch (Exception e) { this.faxImport=ERROR_VALUE ;
+		}
+		
+		try {this.telImport = aut.getTabImp().getLibTel();
+		}catch (Exception e) { this.telImport=ERROR_VALUE ;
+		}
+		
+		try {this.paysImport = "";
+		}catch (Exception e) { this.paysImport=ERROR_VALUE ;
+		}
+		
+		try {this.ntrActiviteDeclare = aut.getTabAct().getLibNatActDec();
+		}catch (Exception e) { this.ntrActiviteDeclare=ERROR_VALUE ;
+		}
+		
+		try {this.cActivite = aut.getTabAct().getNumCodAct();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		try {this.cniu = aut.getTabImp().getCodNiu();
+		}catch (Exception e) { this.cniu=ERROR_VALUE ;
+		}
+		
+		try {this.fournisseur = aut.getTabFour().getLibFour();
+		}catch (Exception e) { this.fournisseur=ERROR_VALUE ;
+		}
+		
+		try {this.adrfour = aut.getTabFour().getLibAdr();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		try {this.bpfour = aut.getTabFour().getLibBoiPos();
+		}catch (Exception e) { this.bpfour=ERROR_VALUE ;
+		}
+		
+		try {this.faxfour = aut.getTabFour().getLibFax();
+		}catch (Exception e) { this.faxfour=ERROR_VALUE ;
+		}
+		
+		try {this.telfour = aut.getTabFour().getLibTel();
+		}catch (Exception e) { this.telfour=ERROR_VALUE ;
+		}
+		
+		try {this.paysfour = aut.getTabFour().getTabPays().getLibPays();
+		}catch (Exception e) { this.paysfour=ERROR_VALUE ;
+		}
+		
+		try {this.transitaire = aut.getTabTrans().getLibTrans();
+		}catch (Exception e) { this.transitaire=ERROR_VALUE ;
+		}
+		
+		try {this.domiciliation = aut.getTabBnq().getLibBnq();
+		}catch (Exception e) { this.domiciliation=ERROR_VALUE ;
+		}
+		
+		try {this.devise = aut.getLibDvs();
+		}catch (Exception e) { this.devise=ERROR_VALUE ;
+		}
+		
+		try {this.taux = aut.getTauxDvs().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.vMntDevis = pro.getValPrixDvs().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.vMntCfa = pro.getValPrixCfa().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.motifImport = aut.getLibMotif();
+		}catch (Exception e) { this.motifImport=ERROR_VALUE ;
+		}
+		
+		try {this.paysOrigine = aut.getTabPaysOri().getLibPays();
+		}catch (Exception e) { this.paysOrigine=ERROR_VALUE ;
+		}
+		
+		try {this.paysProvenance = aut.getTabPaysPro().getLibPays();
+		}catch (Exception e) { this.paysProvenance=ERROR_VALUE ;
+		}
+		
+		try {this.modalitePaie = aut.getEnuModPaie();
+		}catch (Exception e) { this.modalitePaie=ERROR_VALUE ;
+		}
+		
+		try {this.modeTransport = aut.getEnuModTrans();
+		}catch (Exception e) { this.modeTransport=ERROR_VALUE ;
+		}
+		
+		try {this.relationFournisseur = aut.getEnuRelFour();
+		}catch (Exception e) { this.modeTransport=ERROR_VALUE ;
+		}
+		
+		try {this.bureauDouane = aut.getLibBurDed();
+		}catch (Exception e) { this.bureauDouane=ERROR_VALUE ;
+		}
+		
+		try {this.emailImport = aut.getTabImp().getLibEmail();
+		}catch (Exception e) { this.emailImport=ERROR_VALUE ;
+		}
+		
+		try {this.emailFour = aut.getTabFour().getLibEmail();
+		}catch (Exception e) { this.emailFour=ERROR_VALUE ;
+		}
+		
+		try {this.ntrProduit = aut.getLibInt();
+		}catch (Exception e) { this.emailFour=ERROR_VALUE ;
+		}
+		
+		try {this.lmarchan = pro.getLibPro();
+		}catch (Exception e) { this.lmarchan=ERROR_VALUE ;
+		}
+		
+		try {this.cPosTarifaire = pro.getLibPosiTarif();
+		}catch (Exception e) { this.cPosTarifaire=ERROR_VALUE ;
+		}
+		
+		try {this.colisage = pro.getLibColi();
+		}catch (Exception e) { this.colisage=ERROR_VALUE ;
+		}
+		
+		try {this.qte = pro.getValQte().toString();
+		}catch (Exception e) { this.colisage=ERROR_VALUE ;
+		}
+		
+		try {this.poids = pro.getLibPoiNet();
+		}catch (Exception e) { this.poids=ERROR_VALUE ;
+		}
+		
+	}
+	
+	public SrlImportationElt(TabDecImp dec, TabPro pro){
+		
+		try {this.numdi = dec.getNumDec();
+		}catch (Exception e) { this.numdi=ERROR_VALUE ;
+		}
+		
+		try {this.importateur = dec.getTabImp().getLibImp();
+		}catch (Exception e) { this.importateur=ERROR_VALUE ;
+		}
+		
+		try {this.adrImport = dec.getTabImp().getLibAdr();
+		}catch (Exception e) { this.adrImport=ERROR_VALUE ;
+		}
+		
+		try {this.bpImport = dec.getTabImp().getLibBoiPos();
+		}catch (Exception e) { this.bpImport=ERROR_VALUE ;
+		}
+		
+		try {this.faxImport = dec.getTabImp().getLibFax();
+		}catch (Exception e) { this.faxImport=ERROR_VALUE ;
+		}
+		
+		try {this.telImport = dec.getTabImp().getLibTel();
+		}catch (Exception e) { this.telImport=ERROR_VALUE ;
+		}
+		
+		try {this.paysImport = "";
+		}catch (Exception e) { this.paysImport=ERROR_VALUE ;
+		}
+		
+		try {this.ntrActiviteDeclare = dec.getTabAct().getLibNatActDec();
+		}catch (Exception e) { this.ntrActiviteDeclare=ERROR_VALUE ;
+		}
+		
+		try {this.cActivite = dec.getTabAct().getNumCodAct();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		try {this.cniu = dec.getTabImp().getCodNiu();
+		}catch (Exception e) { this.cniu=ERROR_VALUE ;
+		}
+		
+		try {this.fournisseur = dec.getTabFour().getLibFour();
+		}catch (Exception e) { this.fournisseur=ERROR_VALUE ;
+		}
+		
+		try {this.adrfour = dec.getTabFour().getLibAdr();
+		}catch (Exception e) { this.cActivite=ERROR_VALUE ;
+		}
+		
+		try {this.bpfour = dec.getTabFour().getLibBoiPos();
+		}catch (Exception e) { this.bpfour=ERROR_VALUE ;
+		}
+		
+		try {this.faxfour = dec.getTabFour().getLibFax();
+		}catch (Exception e) { this.faxfour=ERROR_VALUE ;
+		}
+		
+		try {this.telfour = dec.getTabFour().getLibTel();
+		}catch (Exception e) { this.telfour=ERROR_VALUE ;
+		}
+		
+		try {this.paysfour = dec.getTabFour().getTabPays().getLibPays();
+		}catch (Exception e) { this.paysfour=ERROR_VALUE ;
+		}
+		
+		try {this.transitaire = dec.getTabTrans().getLibTrans();
+		}catch (Exception e) { this.transitaire=ERROR_VALUE ;
+		}
+		
+		try {this.domiciliation = dec.getTabBnq().getLibBnq();
+		}catch (Exception e) { this.domiciliation=ERROR_VALUE ;
+		}
+		
+		try {this.devise = dec.getLibDvs();
+		}catch (Exception e) { this.devise=ERROR_VALUE ;
+		}
+		
+		try {this.taux = dec.getTauxDvs().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.vMntDevis = pro.getValPrixDvs().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.vMntCfa = pro.getValPrixCfa().toString();
+		}catch (Exception e) { this.taux=ERROR_VALUE ;
+		}
+		
+		try {this.motifImport = dec.getLibMotif();
+		}catch (Exception e) { this.motifImport=ERROR_VALUE ;
+		}
+		
+		try {this.paysOrigine = dec.getTabPaysOri().getLibPays();
+		}catch (Exception e) { this.paysOrigine=ERROR_VALUE ;
+		}
+		
+		try {this.paysProvenance = dec.getTabPaysPro().getLibPays();
+		}catch (Exception e) { this.paysProvenance=ERROR_VALUE ;
+		}
+		
+		try {this.modalitePaie = dec.getEnuModPaie();
+		}catch (Exception e) { this.modalitePaie=ERROR_VALUE ;
+		}
+		
+		try {this.modeTransport = dec.getEnuModTrans();
+		}catch (Exception e) { this.modeTransport=ERROR_VALUE ;
+		}
+		
+		try {this.relationFournisseur = dec.getEnuRelFour();
+		}catch (Exception e) { this.modeTransport=ERROR_VALUE ;
+		}
+		
+		try {this.bureauDouane = dec.getLibBurDed();
+		}catch (Exception e) { this.bureauDouane=ERROR_VALUE ;
+		}
+		
+		try {this.emailImport = dec.getTabImp().getLibEmail();
+		}catch (Exception e) { this.emailImport=ERROR_VALUE ;
+		}
+		
+		try {this.emailFour = dec.getTabFour().getLibEmail();
+		}catch (Exception e) { this.emailFour=ERROR_VALUE ;
+		}
+		
+		try {this.ntrProduit = dec.getLibInt();
+		}catch (Exception e) { this.emailFour=ERROR_VALUE ;
+		}
+		
+		try {this.lmarchan = pro.getLibPro();
+		}catch (Exception e) { this.lmarchan=ERROR_VALUE ;
+		}
+		
+		try {this.cPosTarifaire = pro.getLibPosiTarif();
+		}catch (Exception e) { this.cPosTarifaire=ERROR_VALUE ;
+		}
+		
+		try {this.colisage = pro.getLibColi();
+		}catch (Exception e) { this.colisage=ERROR_VALUE ;
+		}
+		
+		try {this.qte = pro.getValQte().toString();
+		}catch (Exception e) { this.colisage=ERROR_VALUE ;
+		}
+		
+		try {this.poids = pro.getLibPoiNet();
+		}catch (Exception e) { this.poids=ERROR_VALUE ;
+		}
+		
+	}
+
+	public String getNumdi() {
+		return numdi;
+	}
+
+	public void setNumdi(String numdi) {
+		this.numdi = numdi;
+	}
+
+	public String getImportateur() {
+		return importateur;
+	}
+
+	public void setImportateur(String importateur) {
+		this.importateur = importateur;
+	}
+
+	public String getAdrImport() {
+		return adrImport;
+	}
+
+	public void setAdrImport(String adrImport) {
+		this.adrImport = adrImport;
+	}
+
+	public String getBpImport() {
+		return bpImport;
+	}
+
+	public void setBpImport(String bpImport) {
+		this.bpImport = bpImport;
+	}
+
+	public String getFaxImport() {
+		return faxImport;
+	}
+
+	public void setFaxImport(String faxImport) {
+		this.faxImport = faxImport;
+	}
+
+	public String getTelImport() {
+		return telImport;
+	}
+
+	public void setTelImport(String telImport) {
+		this.telImport = telImport;
+	}
+
+	public String getPaysImport() {
+		return paysImport;
+	}
+
+	public void setPaysImport(String paysImport) {
+		this.paysImport = paysImport;
+	}
+
+	public String getNtrActiviteDeclare() {
+		return ntrActiviteDeclare;
+	}
+
+	public void setNtrActiviteDeclare(String ntrActiviteDeclare) {
+		this.ntrActiviteDeclare = ntrActiviteDeclare;
+	}
+
+	public String getcActivite() {
+		return cActivite;
+	}
+
+	public void setcActivite(String cActivite) {
+		this.cActivite = cActivite;
+	}
+
+	public String getCniu() {
+		return cniu;
+	}
+
+	public void setCniu(String cniu) {
+		this.cniu = cniu;
+	}
+
+	public String getFournisseur() {
+		return fournisseur;
+	}
+
+	public void setFournisseur(String fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+
+	public String getAdrfour() {
+		return adrfour;
+	}
+
+	public void setAdrfour(String adrfour) {
+		this.adrfour = adrfour;
+	}
+
+	public String getBpfour() {
+		return bpfour;
+	}
+
+	public void setBpfour(String bpfour) {
+		this.bpfour = bpfour;
+	}
+
+	public String getFaxfour() {
+		return faxfour;
+	}
+
+	public void setFaxfour(String faxfour) {
+		this.faxfour = faxfour;
+	}
+
+	public String getTelfour() {
+		return telfour;
+	}
+
+	public void setTelfour(String telfour) {
+		this.telfour = telfour;
+	}
+
+	public String getPaysfour() {
+		return paysfour;
+	}
+
+	public void setPaysfour(String paysfour) {
+		this.paysfour = paysfour;
+	}
+
+	public String getTransitaire() {
+		return transitaire;
+	}
+
+	public void setTransitaire(String transitaire) {
+		this.transitaire = transitaire;
+	}
+
+	public String getDomiciliation() {
+		return domiciliation;
+	}
+
+	public void setDomiciliation(String domiciliation) {
+		this.domiciliation = domiciliation;
+	}
+
+	public String getDevise() {
+		return devise;
+	}
+
+	public void setDevise(String devise) {
+		this.devise = devise;
+	}
+
+	public String getTaux() {
+		return taux;
+	}
+
+	public void setTaux(String taux) {
+		this.taux = taux;
+	}
+
+	public String getvMntDevis() {
+		return vMntDevis;
+	}
+
+	public void setvMntDevis(String vMntDevis) {
+		this.vMntDevis = vMntDevis;
+	}
+
+	public String getvMntCfa() {
+		return vMntCfa;
+	}
+
+	public void setvMntCfa(String vMntCfa) {
+		this.vMntCfa = vMntCfa;
+	}
+
+	public String getMotifImport() {
+		return motifImport;
+	}
+
+	public void setMotifImport(String motifImport) {
+		this.motifImport = motifImport;
+	}
+
+	public String getPaysOrigine() {
+		return paysOrigine;
+	}
+
+	public void setPaysOrigine(String paysOrigine) {
+		this.paysOrigine = paysOrigine;
+	}
+
+	public String getPaysProvenance() {
+		return paysProvenance;
+	}
+
+	public void setPaysProvenance(String paysProvenance) {
+		this.paysProvenance = paysProvenance;
+	}
+
+	public String getModalitePaie() {
+		return modalitePaie;
+	}
+
+	public void setModalitePaie(String modalitePaie) {
+		this.modalitePaie = modalitePaie;
+	}
+
+	public String getModeTransport() {
+		return modeTransport;
+	}
+
+	public void setModeTransport(String modeTransport) {
+		this.modeTransport = modeTransport;
+	}
+
+	public String getRelationFournisseur() {
+		return relationFournisseur;
+	}
+
+	public void setRelationFournisseur(String relationFournisseur) {
+		this.relationFournisseur = relationFournisseur;
+	}
+
+	public String getBureauDouane() {
+		return bureauDouane;
+	}
+
+	public void setBureauDouane(String bureauDouane) {
+		this.bureauDouane = bureauDouane;
+	}
+
+	public String getEmailImport() {
+		return emailImport;
+	}
+
+	public void setEmailImport(String emailImport) {
+		this.emailImport = emailImport;
+	}
+
+	public String getEmailFour() {
+		return emailFour;
+	}
+
+	public void setEmailFour(String emailFour) {
+		this.emailFour = emailFour;
+	}
+
+	public String getNtrProduit() {
+		return ntrProduit;
+	}
+
+	public void setNtrProduit(String ntrProduit) {
+		this.ntrProduit = ntrProduit;
+	}
+
+	public String getLmarchan() {
+		return lmarchan;
+	}
+
+	public void setLmarchan(String lmarchan) {
+		this.lmarchan = lmarchan;
+	}
+
+	public String getcPosTarifaire() {
+		return cPosTarifaire;
+	}
+
+	public void setcPosTarifaire(String cPosTarifaire) {
+		this.cPosTarifaire = cPosTarifaire;
+	}
+
+	public String getColisage() {
+		return colisage;
+	}
+
+	public void setColisage(String colisage) {
+		this.colisage = colisage;
+	}
+
+	public String getQte() {
+		return qte;
+	}
+
+	public void setQte(String qte) {
+		this.qte = qte;
+	}
+
+	public String getPoids() {
+		return poids;
+	}
+
+	public void setPoids(String poids) {
+		this.poids = poids;
+	}	
+
+
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+
+ 	<ui:composition template="/shared/templates/templateFormulaireDetails.xhtml">
+   			
+		<ui:param name="managedBean" value="#{sessionScope[impCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" d'un importateur" />
+		
+	<!-- Definition du contenu de l'ecran principal  -->
+		<ui:define name="ecranPrincipalContenu">
+	
+			<h:panelGroup>
+				<fieldset>
+					<legend> <h:outputText value="Detail importateur" styleClass="legend" />  </legend>
+
+        			<h:panelGrid columns="2" width="100%" columnClasses="pngdColMiddle" rowClasses="pngdRow"  >
+        							         		
+         				<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+
+							<h:outputText value="Numéro d'identification unique" />
+							<h:inputText value="#{entiteCourante.codcodNiu}" style="width: 95%"  readonly="true"/>							 	
+						
+							<h:outputText value="Nom de la société" />
+							<h:inputText  value="#{entiteCourante.libImp}" style="width: 95%"  readonly="true"/>							 	
+							
+							<h:outputText value="Adresse" />
+							<h:inputTextarea  value="#{entiteCourante.libAdr}" style="width: 95%"  readonly="true"/>							 	
+							
+							<h:outputText value="B.P." />
+							<h:inputText  value="#{entiteCourante.libBoiPos}" style="width: 95%"  readonly="true"/>	
+							
+							<h:outputText value="Fax" />
+							<h:inputText  value="#{entiteCourante.libFax}" style="width: 95%"  readonly="true"/>
+							
+							<h:outputText value="Tél" />
+							<h:inputText value="#{entiteCourante.libTel}" style="width: 95%"  readonly="true"/>	
+							
+							<h:outputText value="E-mail" />
+							<h:inputText value="#{entiteCourante.libEmail}" style="width: 95%"  readonly="true"/>
+							
+         				</h:panelGrid>  
+         				
+         				<h:panelGrid columns="2"  width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+         				</h:panelGrid>
+         					         		         		
+         			</h:panelGrid>  
+         	
+				</fieldset>								
+			</h:panelGroup>
+
+		</ui:define>
+													
+	</ui:composition>
+	
+</html>

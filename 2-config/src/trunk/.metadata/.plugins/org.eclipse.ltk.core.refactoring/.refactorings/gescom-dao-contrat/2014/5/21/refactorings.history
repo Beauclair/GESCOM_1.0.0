@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;IDaoAutSpeImp.java&apos; to &apos;gescom-dao-contrat/src/main/code/importation/com.mincom.gescom.be.imp.dao&apos;&#x0D;&#x0A;- Original project: &apos;gescom-dao-contrat&apos;&#x0D;&#x0A;- Destination element: &apos;gescom-dao-contrat/src/main/code/importation/com.mincom.gescom.be.imp.dao&apos;&#x0D;&#x0A;- Original element: &apos;com.mincom.gescom.be.imp.dao.IDaoAutSpeImp.java&apos;" description="Copy compilation unit" destination="/src\/main\/code\/importation&lt;com.mincom.gescom.be.imp.dao" element1="/src\/main\/code\/importation&lt;com.mincom.gescom.be.imp.dao{IDaoAutSpeImp.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1400906516370" units="1" version="1.0"/>
+</session>

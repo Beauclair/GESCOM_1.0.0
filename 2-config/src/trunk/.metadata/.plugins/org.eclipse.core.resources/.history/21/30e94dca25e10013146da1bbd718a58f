@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+
+   		<ui:composition >
+				
+			<rich:modalPanel id="mpnl_pro"  autosized="true" minWidth="620" minHeight="100"  >
+			
+				<f:facet name="header">
+					<h:outputText value="Ajouter produit" style="padding-right:15px;" />						
+				</f:facet>
+				
+				<h:form>
+					
+				<h:panelGrid columns="2" width="100%"  style="border:2px solid #{richSkin.panelBorderColor};"   >
+																		
+					<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+					
+						<h:panelGroup>
+							<h:outputText value="Libellé produit" title="Libellé produit"  />
+							<ui:include src="/shared/include/required.xhtml" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:inputText id="inp_libpro"  immediate="true" value="#{autSpeImpCtrl.produit.libPro}" 
+								style="width: 100%"  required="true" title="Libellé produit" 
+								requiredMessage="Valeur obligatoire" >
+								<a4j:support event="onchange" ajaxSingle="true" />
+								<rich:message for="inp_libpro" errorClass="msg_error" />
+							</h:inputText>	
+						</h:panelGroup>
+						
+						<h:outputText value="Position tarifaire" title="Position tarifaire"  />
+						<h:panelGroup>
+							<h:inputText id="pos_tar"  immediate="true" value="#{autSpeImpCtrl.produit.libPosiTarif}" 
+								style="width: 100%"   title="Position tarifaire" >
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>	
+						</h:panelGroup>
+						
+						<h:outputText value="Colisage" title="Colisage"  />
+						<h:panelGroup>
+							<h:inputText id="col"  immediate="true" value="#{autSpeImpCtrl.produit.libColi}" 
+								style="width: 100%"   title="Colisage" >
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>	
+						</h:panelGroup>
+						
+						<h:outputText value="Quantité" title="Quantité"  />
+						<h:panelGroup>
+							<h:inputText id="qte"  immediate="true" value="#{autSpeImpCtrl.produit.valQte}" 
+								style="width: 100%"   title="Quantité" >
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>	
+						</h:panelGroup>
+						
+					</h:panelGrid>
+					
+					<h:panelGrid columns="2" width="100%" columnClasses="pngdColLeftDynamic,pngdColRightDynamic"  >
+					
+						<h:outputText value="#{locale.numplo1}"  />
+						<h:panelGroup>
+							<h:inputText id="inpt_plo1"  value="#{autSpeImpCtrl.conteneur.numPlo1}" style="width: 100%"	immediate="true">
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>
+						</h:panelGroup>
+						
+						<h:outputText value="#{locale.numplo2}"  />
+						<h:panelGroup>
+							<h:inputText id="inpt_plo2"  value="#{autSpeImpCtrl.conteneur.numPlo2}" style="width: 100%"	immediate="true">
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>
+						</h:panelGroup>
+						
+						<h:outputText value="Marchandise "  />
+						<h:selectOneMenu id="mar" value="#{autSpeImpCtrl.conteneur.enuTypMar}" style="width: 100%"
+								title="Marchandise"  immediate="true">
+							<f:selectItems  value="#{autSpeImpCtrl.defaultVue.listeTypeMar['map']}"/>
+							<a4j:support event="onchange" ajaxSingle="true" />						
+						</h:selectOneMenu>
+						
+						<h:outputText value="#{locale.numcom}"  />
+						<h:panelGroup>
+							<h:inputText id="inpt_numcom"  value="#{autSpeImpCtrl.conteneur.numCom}" style="width: 100%"	immediate="true">
+								<a4j:support event="onchange" ajaxSingle="true" />
+							</h:inputText>
+						</h:panelGroup>
+						
+						<h:outputText value="" />
+						<h:panelGroup>
+							<a4j:commandButton  value="Ajouter" action="#{autSpeImpCtrl.ajouterConteneur}" reRender="pnel_main" oncomplete="#{rich:component('mpnl_con')}.hide();return true;" />
+							<a4j:commandButton  value="Annuler"  action="null"  oncomplete="#{rich:component('mpnl_con')}.hide();return false;"/>
+						</h:panelGroup>
+						
+					</h:panelGrid>
+													
+				</h:panelGrid>
+				
+				</h:form>
+				
+			</rich:modalPanel>
+        												
+		</ui:composition>
+</html>

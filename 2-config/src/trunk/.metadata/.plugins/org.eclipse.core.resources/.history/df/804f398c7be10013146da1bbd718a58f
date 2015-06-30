@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+     
+  	<ui:composition template="/shared/templates/templateFormulaireListe.xhtml">
+		
+		<ui:param name="managedBean" value="#{sessionScope[autSpeImpCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" des autorisations spéciales d'importation" />
+		
+		<!-- Criteres standards de recherche -->
+		<ui:define name="standardFilter"  >
+		
+			<h:panelGrid columns="2" width="100%"   columnClasses="pngdColMiddle" rowClasses="pngdRow" >
+			
+				<h:panelGrid columns="2" width="100%"  columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				
+					<h:outputText value="Numéro de l'autorisation" />          				
+         			<h:inputText  value="#{autSpeImpCtrl.defaultVue.entiteRecherche.numAut}" style="width: 30%" /> 
+         			
+					<h:outputText value="Code de l'autorisation " />          				
+         			<h:inputText  value="#{autSpeImpCtrl.defaultVue.entiteRecherche.codAut}" style="width: 30%" />           					           					           					   					            				            				            			
+          					           					           					   					            				            				            			        									   					           					
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%" border="0" columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				</h:panelGrid>
+														
+																																																	
+			</h:panelGrid>	
+						
+		</ui:define>
+		
+		<!-- Colonnes specifiques e l entite -->
+		<ui:define name="specificColumns"  >
+		
+			<rich:column label="Code de l'autorisation" sortBy="#{entity.codAut}" filterBy="#{entity.codAut}" >
+				<f:facet name="header">
+					<h:outputText value="Code de l'autorisation"  />
+				</f:facet>
+				<h:outputText value="#{entity.codAut}" />				
+			</rich:column>
+			
+			<rich:column label="Numéro de l'autorisation" sortBy="#{entity.numAut}" filterBy="#{entity.numAut}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Numéro de l'autorisation"  />
+				</f:facet>
+				<h:outputText value="#{entity.numAut}" />				
+			</rich:column>	
+			
+			<rich:column label="Importateur" sortBy="#{entity.tabImp.libImp}" filterBy="#{entity.tabImp.libImp}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Importateur"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabImp.libImp}" />				
+			</rich:column>
+			
+			<rich:column label="Activité déclarée" sortBy="#{entity.tabAct.libNatActDec}" filterBy="#{entity.tabAct.libNatActDec}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Activité déclarée"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabAct.libNatActDec}" />				
+			</rich:column>
+			
+			<rich:column label="Fournisseur" sortBy="#{entity.tabFour.libFour}" filterBy="#{entity.tabFour.libFour}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Fournisseur"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabFour.libFour}" />				
+			</rich:column>
+			
+			<rich:column label="Transitaire" sortBy="#{entity.tabTrans.libTrans}" filterBy="#{entity.tabTrans.libTrans}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Transitaire"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabTrans.libTrans}" />				
+			</rich:column>
+			
+			<rich:column label="Pays d'origine" sortBy="#{entity.tabPaysOri.libPays}" filterBy="#{entity.tabPaysOri.libPays}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Pays d'origine"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabPaysOri.libPays}" />				
+			</rich:column>
+			
+			<rich:column label="Pays de provenance" sortBy="#{entity.tabPaysPro.libPays}" filterBy="#{entity.tabPaysPro.libPays}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Pays de provenance"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabPaysPro.libPays}" />				
+			</rich:column>
+			
+			<rich:column label="Mode de transport" sortBy="#{entity.LEnuModTrans}" filterBy="#{entity.LEnuModTrans}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Mode de transport"  />
+				</f:facet>
+				<h:outputText value="#{entity.LEnuModTrans}" />				
+			</rich:column>
+			
+									
+		</ui:define>
+		
+	</ui:composition>
+	
+</html>

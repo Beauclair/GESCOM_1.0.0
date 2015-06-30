@@ -1,0 +1,47 @@
+ DROP TABLE TAB_DVS;
+ 
+ CREATE TABLE TAB_DVS (	
+COD_DVS	VARCHAR2(30),
+LIB_DVS	VARCHAR2(100),
+ETAT_ENT	VARCHAR2(30),
+COD_EXE_FIS	VARCHAR2(30),
+BOO_ACT	NUMBER(1,0) DEFAULT 0,
+COD_USR_CRT	VARCHAR2(30),
+COD_USR_MOD	VARCHAR2(30),
+DAT_CRT	VARCHAR2(30),
+DAT_MOD	VARCHAR2(30), 
+COD_SITE_ID	VARCHAR2(30),
+CONSTRAINT PK_TAB_DVS PRIMARY KEY(COD_DVS)
+);
+
+COMMENT ON TABLE TAB_DVS IS 'Table des Dévises';
+COMMENT ON COLUMN TAB_DVS.COD_DVS IS 'Code de la Dévise';
+COMMENT ON COLUMN TAB_DVS.LIB_DVS IS 'Libellé de la Dévise';
+COMMENT ON COLUMN TAB_DVS.COD_USR_CRT IS 'Code de l''utilisateur ayant créé l''enregistrement';
+COMMENT ON COLUMN TAB_DVS.COD_USR_MOD IS 'Code de l''utilisateur ayant effectué la dernière modification sur l''enregistrement';
+COMMENT ON COLUMN TAB_DVS.DAT_CRT IS 'Date de création de l''enregistrement';
+COMMENT ON COLUMN TAB_DVS.DAT_MOD IS 'Date de la dernière modification de l''enregistrement';
+
+DROP TABLE TAB_BNQ;
+
+CREATE TABLE TAB_BNQ (	
+COD_BNQ	VARCHAR2(30) ,
+LIB_BNQ	VARCHAR2(100),
+ETAT_ENT	VARCHAR2(30),
+COD_EXE_FIS	VARCHAR2(30),
+BOO_ACT	NUMBER(1,0) DEFAULT 0,
+COD_USR_CRT	VARCHAR2(30),
+COD_USR_MOD	VARCHAR2(30),
+DAT_CRT	VARCHAR2(30),
+DAT_MOD	VARCHAR2(30), 
+COD_SITE_ID	VARCHAR2(30),
+CONSTRAINT PK_TAB_BNQ PRIMARY KEY (COD_BNQ)
+);
+
+COMMENT ON TABLE TAB_BNQ IS 'Table des Banques';
+COMMENT ON COLUMN TAB_BNQ.COD_BNQ IS 'Code de la Banque';
+COMMENT ON COLUMN TAB_BNQ.LIB_BNQ IS 'Libellé de la Banque';
+COMMENT ON COLUMN TAB_BNQ.COD_USR_CRT IS 'Code de l''utilisateur ayant créé l''enregistrement';
+COMMENT ON COLUMN TAB_BNQ.COD_USR_MOD IS 'Code de l''utilisateur ayant effectué la dernière modification sur l''enregistrement';
+COMMENT ON COLUMN TAB_BNQ.DAT_CRT IS 'Date de création de l''enregistrement';
+COMMENT ON COLUMN TAB_BNQ.DAT_MOD IS 'Date de la dernière modification de l''enregistrement';

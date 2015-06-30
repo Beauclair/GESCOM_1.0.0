@@ -1,0 +1,103 @@
+package com.mincom.gescom.cleint;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import com.mincom.gescom.be.core.base.BaseLogger;
+
+public class TestService {
+	
+	private static BaseLogger logger = BaseLogger.getLogger(TestService.class);
+	
+	private long CONST_DURATION_OF_DAY = 1000l * 60 * 60 * 24;
+	
+	public TestService(){
+		
+		// 2006-05-01
+		Calendar calendar1 = new GregorianCalendar();
+		calendar1.set(Calendar.YEAR, 2014);
+		calendar1.set(Calendar.MONTH, 1);
+		calendar1.set(Calendar.DAY_OF_MONTH, 8);
+		Date date1 = calendar1.getTime();
+		//  2006-08-15
+		Calendar calendar2 = new GregorianCalendar();
+		calendar2.set(Calendar.YEAR, 2014);
+		calendar2.set(Calendar.MONTH, 1);
+		calendar2.set(Calendar.DAY_OF_MONTH, 12);
+		Date date2 = calendar2.getTime();
+		// Différence
+		long diff = Math.abs(date2.getTime() - date1.getTime());
+		long numberOfDay = (long)diff/CONST_DURATION_OF_DAY;
+		System.err.println("Le nombre de jour est : " + numberOfDay);
+
+		
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		new TestService();
+		
+//		try {
+//			Context context = new InitialContext();
+// 			
+//			IRemoteUsr svcUsr = (IRemoteUsr)context.lookup("gevee-z-ear/SvcoUsr/remote");
+//			TabUsr usr = new TabUsr();
+//			usr.setLibNom("Nanfack");
+//			usr.setLibPre("beauclair");
+//			usr.setCodUsr("liebes");
+//			usr.setBooSex("M");
+//			usr.setCodPwd("liebe14");
+//			usr.setLibAdr("Douala-Chococho");
+//			usr.setDatExpPwd(DateTools.formatDate(new Date()));
+//			usr.setDatEmbch(DateTools.formatDate(new Date()));
+//			svcUsr.creer(usr);
+//			
+//			TabUsr usrA =  svcUsr.authenticate("liebes", "liebe14");
+//			if(usrA!=null && usrA.getLibNom() !=null){
+//				logger.debug(" svcUsr.authenticate ok ok ok ok ok");
+//			}else{
+//				logger.debug(" svcUsr.authenticate no on on no no no no");
+//			}
+//			
+//			if(usrA.getPwdExpire() == true){
+//				logger.debug("pwd expiré");
+//			}
+//			
+//			usr = new TabUsr();
+//			usr.setLibNom("mego");
+//			usr.setLibPre("papix");
+//			usr.setCodUsr("root");
+//			usr.setBooSex("F");
+//			usr.setCodPwd("root");
+//			usr.setLibAdr("Yaoundé-calafatas");
+//			usr.setDatExpPwd(DateTools.formatDate(new Date()));
+//			usr.setDatEmbch(DateTools.formatDate(new Date()));
+//			svcUsr.creer(usr);
+//			
+//			List<TabUsr> list = svcUsr.rechercherTout(new TabUsr());
+//			logger.debug("la taille des users === " +list.size());
+//			
+//			TabUsr usr2 = list.get(0);
+//			logger.debug("usr2.name == "+ usr2.getLibNom());
+//			usr2.setLibNom("nameChange");
+//			svcUsr.modifier(usr2);
+//			
+//			TabUsr oneRslt = svcUsr.rechercher(new TabUsr(),"root");
+//			logger.debug("oneRslt.name ="+ oneRslt.getLibNom());
+//			
+//			svcUsr.supprimer(oneRslt);
+			
+//		} catch (NamingException e) {
+//			e.printStackTrace();
+//		} catch (GeveeAppException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+	
+
+}

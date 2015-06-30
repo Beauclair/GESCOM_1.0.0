@@ -1,0 +1,43 @@
+package com.mincom.gescom.be.imp.serialiaze;
+
+public class SrlImportationElt {
+
+	private String numdi;
+	private String importateur;
+	private String adrImport;
+	private String bpImport;
+	private String faxImport;
+	private String telImport;
+	private String paysImport; 
+	private String ntrActiviteDeclare;
+	private String cActivite;
+	private String cniu;
+	private String fournisseur;
+	private String adrfour;
+	private String bpfour;
+	private String faxfour;
+	private String telfour;
+	private String paysfour ;
+	private String transitaire ;
+	private String domiciliation ;
+	private String devise;
+	private String taux;
+	private String vMntDevis;
+	private String vMntCfa ;
+	private String motifImport;
+	private String paysOrigine;
+	private String paysProvenance;
+	private String modalitePaie;
+	private String modeTransport;
+	private String bureauDouane;
+	private String emailImport;
+	private String emailFour;
+	private String ntrProduit;
+	private String lmarchan;
+	private String cPosTarifaire;
+	private String colisage;
+	private String qte;
+	private String poids;
+
+
+}

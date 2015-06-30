@@ -1,0 +1,151 @@
+package com.mincom.gescom.ui.admin.vue;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.event.ActionEvent;
+import javax.faces.model.SelectItem;
+
+import com.mincom.gescom.be.admin.entity.utilisateur.TabSite;
+import com.mincom.gescom.be.admin.entity.utilisateur.TabUsr;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.ui.admin.util.AdminSvcoDeleguate;
+import com.mincom.gescom.ui.core.base.AbstractNavigationManager;
+import com.mincom.gescom.ui.core.base.GesComVue;
+import com.mincom.gescom.ui.core.base.TableManager;
+
+public class UsrVue extends GesComVue<TabUsr>{
+	
+	
+	/**
+	 * Propriété permant de gérer l'exactitude du mot de passe saisi par l'utilisateur 
+	 */
+	String password;
+	
+	private List<SelectItem> listeSite;
+	
+	private List<SelectItem> listSites;
+	
+
+	//mapSitr
+	private Map<String, TabSite> mapSite = new HashMap<String, TabSite>();
+	
+	public UsrVue(){
+		super();
+		// Instance des propriétés génériques héritées  
+		this.tableMgr = new TableManager();
+		this.navigationMgr = new AbstractNavigationManager();
+	}
+	
+	/**
+	 * Retourne une nouvelle Instance de l'entité  
+	 * 
+	 * @return
+	 */	
+	public static TabUsr getTabUsr (){		
+		
+		TabUsr v$user = new TabUsr();
+		// Mise des info de l'utilisateur
+		v$user.setInfoUser(getInfoUser());
+		v$user.initData();
+		return v$user ;	
+	}	
+	
+	/**
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 * 
+	 * @return
+	 */
+	public static TabUsr getTabUsrForSearch (){		
+		
+		TabUsr v$user = getTabUsr();
+		return v$user ;	
+	}	
+	/**
+	 * Retourne un Logger pour la Classe
+	 * 
+	 * @return
+	 */
+	public BaseLogger getLogger() {
+		return BaseLogger.getLogger(UsrVue.class);
+	}
+	
+	
+	public TabUsr getNewEntity(){
+		return getTabUsr();
+	}
+	
+	/***
+	 * Retourne une nouvelle instance d'une entité utile pour la recherche des données;  
+	 *  
+	 * @return
+	 */	
+	public TabUsr getEntityForSearch() {	
+		return getTabUsrForSearch();
+	}	
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password2 the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public List<SelectItem> getListeSite() {
+
+		if(listeSite == null){
+			
+			listeSite = new ArrayList<SelectItem>();
+			
+			List<TabSite> v$sites = null;
+						
+			// Critères de recherche des comptes de dépôt	
+			TabSite v$critere = new TabSite();	
+			
+			// Recherche des comptes en BD 			
+			try {
+				v$sites = AdminSvcoDeleguate.getSvcoSite().rechercherTout(v$critere);
+				System.out.println(">>>>>>>>>>>>>>>>>> " + v$sites);
+			} 
+			catch (Exception e) {
+				System.out.println(">>>>>>>>>>>>>>>>>> exception >>>>>>>>>>>>>>");
+				getLogger().error(e.getMessage(), e);
+				e.printStackTrace();
+			} 
+			
+			v$sites = (v$sites != null)? v$sites : new ArrayList<TabSite>();
+			
+			// Création de la liste des élements pour le comboBox
+			for(TabSite v$site: v$sites){
+				SelectItem v$item = new SelectItem(v$site.getCodSite(),v$site.getCodSite());
+				listeSite.add(v$item);
+				mapSite.put(v$site.getCodSite(), v$site);
+			}
+		}
+		return listeSite;
+	}
+	
+	 public void setListeSite(List<SelectItem> listeSite) {
+			this.listeSite = listeSite;
+	}
+	
+	public void updateLibSite(ActionEvent evt){
+		getEntiteCourante().setLibSite(mapSite.get(getEntiteCourante().getCodSite()).getLibSite());
+	}
+
+	public void setListSites(List<SelectItem> listSites) {
+		this.listSites = listSites;
+	}
+
+	public List<SelectItem> getListSites() {
+		return listSites;
+	}
+
+}

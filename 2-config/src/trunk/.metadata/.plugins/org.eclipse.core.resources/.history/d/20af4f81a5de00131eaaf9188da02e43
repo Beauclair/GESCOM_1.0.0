@@ -1,0 +1,6 @@
+package com.mincom.gescom.be.core.enums;
+
+public class Snippet {
+	CREDIT("2000", "Crée"),
+}
+

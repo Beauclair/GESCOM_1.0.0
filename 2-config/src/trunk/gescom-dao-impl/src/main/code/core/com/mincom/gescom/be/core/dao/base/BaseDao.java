@@ -1,0 +1,104 @@
+package com.mincom.gescom.be.core.dao.base;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.core.base.DateTools;
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.core.enums.EnuEtat;
+import com.mincom.gescom.be.core.exception.BaseException;
+import com.mincom.gescom.be.core.exception.GesComPersistenceException;
+
+public abstract class BaseDao <T extends BaseEntity, ID extends Serializable>
+		implements IBaseDao<T, ID>{
+	
+	public abstract BaseLogger getLogger();
+	
+	@PersistenceContext(unitName = "gescom-unit")
+	private EntityManager manager;
+	
+	public EntityManager getManager() throws GesComPersistenceException {
+		if (manager != null)
+			return manager;
+		else {
+			GesComPersistenceException sdr = new GesComPersistenceException("Erreur de récupération de l'entity manager!");
+			getLogger().error("Erreur de récupération de l'entity manager!",
+					sdr);
+			throw sdr;
+		}
+	}
+	
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+	
+	public <X extends BaseEntity> X save(X entity) throws BaseException {
+		try{
+			//Fixe l'état de l'entité à créer
+			((GesComBaseEntity) entity).setEtatEnt(EnuEtat.CREE.getValue());
+			getLogger().debug("Création de l'entité en BDD ...1");
+			//On précise que l'entité est actif
+			((GesComBaseEntity) entity).setBooAct(BigDecimal.ONE);
+			getLogger().debug("Création de l'entité en BDD ...2");
+			//On fixe l'année de création de l'entité
+			((GesComBaseEntity) entity).setCodExeFis(DateTools.getYear(DateTools.formatDate(new Date())));
+			getLogger().debug("Création de l'entité en BDD ...3");
+			//Fixe la date de création
+			((GesComBaseEntity) entity).setDatCrt(DateTools.formatDate(new Date()));
+			getLogger().debug("Création de l'entité en BDD ...4");
+			//Fixe l'utilisateur qui cree
+			((GesComBaseEntity) entity).setCodUsrCrt(entity.getInfoUser().getUser().getCodUsr());
+			getLogger().debug("Création de l'entité en BDD ...5");
+			//Fixe le site
+			((GesComBaseEntity) entity).setCodSiteID(entity.getInfoUser().getUser().getCodSite());
+			getLogger().debug("Création de l'entité en BDD ...6");
+			getLogger().debug("Création de l'entité en BDD ...");
+			this.getManager().persist(entity);
+			final X saved = this.getManager().merge(entity);
+			return saved;
+		}catch (GesComPersistenceException e){
+			throw e;
+		}
+	}
+	
+	public <X extends BaseEntity> X update(X entity) throws GesComPersistenceException {
+		try{
+			//Fixe la date de modifiction
+			((GesComBaseEntity) entity).setDatMod(DateTools.formatDate(new Date()));
+			//Fixe l'utilisateur qui modifi
+			((GesComBaseEntity) entity).setCodUsrMod(entity.getInfoUser().getUser().getCodUsr());
+			getLogger().debug("Mise à jour de l'entité en BDD ...");
+			final X saved = this.getManager().merge(entity);
+			return saved;
+		}catch (GesComPersistenceException e){
+			throw e;
+		}
+	}
+	
+	public <X extends BaseEntity> boolean delete(X entity) throws GesComPersistenceException {
+		try{
+			getLogger().debug("Suppression de l'entité en BDD ...");
+			this.getManager().merge(entity);
+			return true;
+		}catch (GesComPersistenceException e){
+			throw e;
+		}
+	}
+	
+	public <X extends BaseEntity> void remove(X entity) throws GesComPersistenceException {
+		try{
+			getLogger().debug("remove de l'entité en BDD ...");
+			this.getManager().remove(this.getManager().merge(entity));
+		}catch (GesComPersistenceException e){
+			throw e;
+		}
+	}
+
+}

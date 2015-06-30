@@ -1,0 +1,82 @@
+package com.mincom.gescom.be.ref.svco;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
+import com.mincom.gescom.be.admin.entity.utilisateur.TabSite;
+import com.mincom.gescom.be.admin.sisv.utilisateur.ISisvSite;
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.core.exception.GesComAppException;
+import com.mincom.gescom.be.core.exception.GesComSystemException;
+import com.mincom.gescom.be.core.sisv.base.IBaseSisv;
+import com.mincom.gescom.be.core.svco.base.BaseSvco;
+import com.mincom.gescom.be.util.EntFichier;
+
+//@Stateless(name = "SvcoChau", mappedName = "SvcoChau")
+@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class SvcoBnq extends BaseSvco<TabSite> implements IRemoteSite, ILocalSite{
+	
+	@EJB
+	ISisvSite sisvSite;
+	
+	@Resource
+	SessionContext session;
+
+	private static BaseLogger logger = BaseLogger.getLogger(SvcoBnq.class);
+	
+	@Override
+	protected IBaseSisv<TabSite, String> getBaseSisv() {
+		return sisvSite;
+	}
+
+	@Override
+	public BaseLogger getLogger() {
+		return logger;
+	}
+	
+
+
+	public <X extends BaseEntity> X rechercher(X entity, Serializable id)
+			throws GesComAppException {
+		try {
+			return sisvSite.rechercher(entity,id);
+		} catch (GesComSystemException e) {
+			e.printStackTrace();
+			GesComAppException sdr = new GesComAppException(e);
+			throw sdr;
+		}
+	}
+
+	public <X extends BaseEntity> List<X> rechercherTout(X entity)
+			throws GesComAppException {
+		try {
+			return sisvSite.rechercherTout(entity);
+		} catch (GesComSystemException e) {
+			e.printStackTrace();
+			GesComAppException sdr = new GesComAppException(e);
+			throw sdr;
+		}
+	}
+
+	@Override
+	public <X extends BaseEntity> List<X> rechercherParCritere(X entity)
+			throws GesComAppException {
+		try {
+			return sisvSite.rechercherParCritere(entity);
+		} catch (GesComSystemException e) {
+			e.printStackTrace();
+			GesComAppException sdr = new GesComAppException(e);
+			throw sdr;
+		}
+	}
+	
+}

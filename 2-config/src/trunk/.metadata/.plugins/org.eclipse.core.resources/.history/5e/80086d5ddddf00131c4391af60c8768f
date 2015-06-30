@@ -1,0 +1,77 @@
+
+package com.mincom.gescom.be.ref.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.mincom.gescom.be.core.base.GesComBaseEntity;
+import com.mincom.gescom.be.util.InfoUser;
+
+
+@Entity
+@Table(name="TAB_PRO")
+public class TabPro extends GesComBaseEntity implements Serializable{
+	
+private static final long serialVersionUID = 1L;
+	
+	public TabPro(){
+		
+	}
+	
+	public TabPro(InfoUser infoUser){
+		
+	}
+	
+	@Id
+	@Column(name = "COD_PRO")
+	private String codPro;
+
+	@Column(name = "LIB_PRO")
+	private String libPro;
+	
+
+	@Override
+	public String getEntityCode() {
+		return "Pro";
+	}
+
+	@Override
+	public Serializable getId() {
+		return getCodPro();
+	}
+
+	@Override
+	public void setId(Serializable id) {
+		setCodPro((String) id);
+	}
+
+
+	@Override
+	public void validateData() {
+	}
+
+	@Override
+	public void initData() {
+	}
+
+	public void setCodPro(String codPro) {
+		this.codPro = codPro;
+	}
+
+	public String getCodPro() {
+		return codPro;
+	}
+
+	public void setLibPro(String libPro) {
+		this.libPro = libPro;
+	}
+
+	public String getLibPro() {
+		return libPro;
+	}
+
+}

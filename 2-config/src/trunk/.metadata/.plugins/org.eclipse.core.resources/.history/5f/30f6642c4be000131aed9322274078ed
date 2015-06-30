@@ -1,0 +1,109 @@
+package com.mincom.gescom.be.ref.sisv;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.core.base.DateTools;
+import com.mincom.gescom.be.core.dao.base.IBaseDao;
+import com.mincom.gescom.be.core.dao.base.IDaoIncCod;
+import com.mincom.gescom.be.core.exception.BaseException;
+import com.mincom.gescom.be.core.exception.GesComPersistenceException;
+import com.mincom.gescom.be.core.exception.GesComSystemException;
+import com.mincom.gescom.be.core.sisv.base.BaseSisv;
+import com.mincom.gescom.be.ref.dao.IDaoFour;
+import com.mincom.gescom.be.ref.entity.TabFour;
+import com.mincom.gescom.be.util.InfoUser;
+
+@Stateless
+public class SisvFour extends BaseSisv<TabFour, String> implements ISisvFour{
+
+	private static BaseLogger logger = BaseLogger.getLogger(SisvFour.class);
+
+	@Override
+	public BaseLogger getLogger() {
+		return logger;
+	} 
+	@EJB
+	IDaoFour daoFour; 
+	
+	@EJB
+	IDaoIncCod daoIncCod;
+
+
+
+	@Override
+	public IBaseDao<TabFour, String> getBaseDao() {
+		return daoFour;
+	}
+
+	public <X extends BaseEntity> X rechercher(X entity, Serializable id) throws GesComSystemException {
+		try {
+			return daoFour.findById(entity, id);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+
+	public <X extends BaseEntity> List<X> rechercherTout(X entity) throws GesComSystemException {
+			
+		try {
+			return daoFour.findAll(entity);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+
+	@Override
+	public <X extends BaseEntity> List<X> rechercherParCritere(X entity)
+			throws GesComSystemException {
+		try {
+			return daoFour.findByExample(entity);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+	
+	public <X extends BaseEntity> X creer(X p$entite) throws BaseException  {
+		
+		TabFour fourCree = (TabFour) p$entite; 
+		//fais un teste si l'entité existe déjà
+		X entRech = getBaseDao().findById(p$entite, p$entite.getId());
+		if(entRech != null){
+			throw new BaseException("Erreur : Cette entité existe déjà");
+		}
+		//Set du cod
+		((TabFour) p$entite).setCodFour(genererCodFour(fourCree));
+		return getBaseDao().save(p$entite);
+	}
+	
+	private String genererCodFour(TabFour tabFour) throws GesComSystemException{
+		
+		BigDecimal v$inc;
+		try {
+			v$inc = daoIncCod.findNextIncCod(tabFour).getValIncCod();
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			throw new GesComSystemException(e.getMessage(), e);
+		}
+		String numero = DateTools.padRigth(String.valueOf(v$inc), 5, '0');
+		
+		 numero = DateTools.getYear(DateTools.formatDate(new Date())).substring(2)+
+			DateTools.getMonth(DateTools.formatDate(new Date())) + numero;
+		return numero;
+	}
+	
+
+}

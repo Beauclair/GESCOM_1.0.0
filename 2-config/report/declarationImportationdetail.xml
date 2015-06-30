@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><com.mincom.gescom.be.imp.serialiaze.SrlImportation>
+  <srlImportation>
+   <com.mincom.gescom.be.imp.serialiaze.SrlImportationElt>
+	<cNumAutSpeImpt>92076</cNumAutSpeImpt>
+	<dCrt>16/05/2014</dCrt>
+	<dValid>16/05/2014</dValid>
+	<lNomSteImpt>procob</lNomSteImpt>
+	<lAdrImpt>corniche de bacongo mbama bzv</lAdrImpt>
+	<cBpImpt>00000</cBpImpt>
+	<cNumFaxImpt>00000</cNumFaxImpt>
+	<cNumTelImpt>00000</cNumTelImpt>
+	<lPaysImpt>rc</lPaysImpt>
+	<lNtrActDecla>construction de batiment</lNtrActDecla>
+	<cNumCodeAct>45210404475</cNumCodeAct>
+	<cNiu>M2005110000383147</cNiu>
+   <lNomSteFour>abc contracting</lNomSteFour>
+	<lAdrFour>av reine elisabeth andenne</lAdrFour>
+	<lBpFour>5300</lBpFour>
+	<cNumFaxFour>+32858499</cNumFaxFour>
+	<cNumTelFour>+32858499</cNumTelFour>
+	<lPaysFour>belgique</lPaysFour>
+	<lTransAgre>getma-congo</lTransAgre>
+	<lDomiciliation>Banque gabonaise pour le financement</lDomiciliation>
+	<lBnq>BGFI-bank</lBnq>
+	<lDevis>euro</lDevis>
+	<zTaux>655,957</zTaux>
+	<vMntDevis>20410,53</vMntDevis>
+	<vMntCfa>13388430</vMntCfa>
+	<lMotifImpt>massamba andree</lMotifImpt>
+	<lPaysOrig>belgique</lPaysOrig>
+	<lPaysProv>belgique</lPaysProv>
+	<eModPaie>1</eModPaie>
+	<eModTrspt>2</eModTrspt>
+	<eRltAvecFour>3</eRltAvecFour>
+	<lBureauDouane>pointe noire</lBureauDouane>
+	<lEmailImpt></lEmailImpt>
+	<lEmailFour>80</lEmailFour>
+	<lNtrProduit>fourniture du systeme d'aduction d'eau potable</lNtrProduit>
+	<lArt>Fouriture du materiel pour la contruction d'eau potable</lArt>
+	<cPosTarif>84304100</cPosTarif>
+	<lColis>pcs</lColis>
+	<zQte>2</zQte>
+	<zPoids>200</zPoids>
+    </com.mincom.gescom.be.imp.serialiaze.SrlImportationElt>
+	<com.mincom.gescom.be.imp.serialiaze.SrlImportationElt>
+	<cNumAutSpeImpt>92076</cNumAutSpeImpt>
+	<dCrt>16/05/2014</dCrt>
+	<dValid>16/05/2014</dValid>
+	<lNomSteImpt>procob</lNomSteImpt>
+	<lAdrImpt>corniche de bacongo mbama bzv</lAdrImpt>
+	<cBpImpt>00000</cBpImpt>
+	<cNumFaxImpt>00000</cNumFaxImpt>
+	<cNumTelImpt>00000</cNumTelImpt>
+	<lPaysImpt>rc</lPaysImpt>
+	<lNtrActDecla>construction de batiment</lNtrActDecla>
+	<cNumCodeAct>45210404475</cNumCodeAct>
+	<cNiu>M2005110000383147</cNiu>
+   <lNomSteFour>abc contracting</lNomSteFour>
+	<lAdrFour>av reine elisabeth andenne</lAdrFour>
+	<lBpFour>5300</lBpFour>
+	<cNumFaxFour>+32858499</cNumFaxFour>
+	<cNumTelFour>+32858499</cNumTelFour>
+	<lPaysFour>belgique</lPaysFour>
+	<lTransAgre>getma-congo</lTransAgre>
+	<lDomiciliation>Banque gabonaise pour le financement</lDomiciliation>
+	<lBnq>BGFI-bank</lBnq>
+	<lDevis>euro</lDevis>
+	<zTaux>655,957</zTaux>
+	<vMntDevis>20410,53</vMntDevis>
+	<vMntCfa>13388430</vMntCfa>
+	<lMotifImpt>massamba andree</lMotifImpt>
+	<lPaysOrig>belgique</lPaysOrig>
+	<lPaysProv>belgique</lPaysProv>
+	<eModPaie>2002</eModPaie>
+	<eModTrspt>1001</eModTrspt>
+	<eRltAvecFour>3000</eRltAvecFour>
+	<lBureauDouane>pointe noire</lBureauDouane>
+	<lEmailImpt></lEmailImpt>
+	<lEmailFour>80</lEmailFour>
+	<lNtrProduit>fourniture du systeme d'aduction d'eau potable</lNtrProduit>
+	<lArt>Fouriture du materiel pour la contruction d'eau potable</lArt>
+	<cPosTarif>84304100</cPosTarif>
+	<lColis>pcs</lColis>
+	<zQte>2</zQte>
+	<zPoids>200</zPoids>
+    </com.mincom.gescom.be.imp.serialiaze.SrlImportationElt>
+  </srlImportation>
+</com.mincom.gescom.be.imp.serialiaze.SrlImportation>

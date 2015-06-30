@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+     
+  	<ui:composition template="/shared/templates/templateFormulaireListe.xhtml">
+		
+		<ui:param name="managedBean" value="#{sessionScope[fourCtrl.nomManagedBean2]}" />
+		<ui:param name="entetePage" value=" des fournisseurs" />
+		
+		<!-- Criteres standards de recherche -->
+		<ui:define name="standardFilter"  >
+		
+			<h:panelGrid columns="2" width="100%"   columnClasses="pngdColMiddle" rowClasses="pngdRow" >
+			
+				<h:panelGrid columns="2" width="100%"  columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				
+					<h:outputText value="Code" />          				
+         			<h:inputText  value="#{fourCtrl.defaultVue.entiteRecherche.codFour}" style="width: 30%" /> 
+         			
+					<h:outputText value="Nom de la société " />          				
+         			<h:inputText  value="#{fourCtrl.defaultVue.entiteRecherche.libFour}" style="width: 30%" />           					           					           					   					            				            				            			
+          					           					           					   					            				            				            			        									   					           					
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" width="100%" border="0" columnClasses="pngdColLeftDynamic,pngdColRightDynamic" >
+				</h:panelGrid>
+														
+																																																	
+			</h:panelGrid>	
+						
+		</ui:define>
+		
+		<!-- Colonnes specifiques e l entite -->
+		<ui:define name="specificColumns"  >
+		
+			<rich:column label="Code " sortBy="#{entity.codNiu}" filterBy="#{entity.codFour}" >
+				<f:facet name="header">
+					<h:outputText value="Code"  />
+				</f:facet>
+				<h:outputText value="#{entity.codFour}" />				
+			</rich:column>
+			
+			<rich:column label="Nom de la société" sortBy="#{entity.libFour}" filterBy="#{entity.libFour}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Nom de la société"  />
+				</f:facet>
+				<h:outputText value="#{entity.libFour}" />				
+			</rich:column>	
+			
+			<rich:column label="Adresse" sortBy="#{entity.libAdr}" filterBy="#{entity.libAdr}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Adresse"  />
+				</f:facet>
+				<h:outputText value="#{entity.libAdr}" />				
+			</rich:column>
+			
+			<rich:column label="B.P." sortBy="#{entity.libBoiPos}" filterBy="#{entity.libBoiPos}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="B.P."  />
+				</f:facet>
+				<h:outputText value="#{entity.libBoiPos}" />				
+			</rich:column>
+			
+			<rich:column label="Fax" sortBy="#{entity.libFax}" filterBy="#{entity.libFax}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Fax"  />
+				</f:facet>
+				<h:outputText value="#{entity.libFax}" />				
+			</rich:column>
+			
+			<rich:column label="Tél" sortBy="#{entity.libTel}" filterBy="#{entity.libTel}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Tél"  />
+				</f:facet>
+				<h:outputText value="#{entity.libTel}" />				
+			</rich:column>
+			
+			<rich:column label="E-mail" sortBy="#{entity.libEmail}" filterBy="#{entity.libEmail}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="E-mail"  />
+				</f:facet>
+				<h:outputText value="#{entity.libEmail}" />				
+			</rich:column>
+			
+			<rich:column label="Pays" sortBy="#{entity.tabPays.libPays}" filterBy="#{entity.tabPays.libPays}" width="150" >
+				<f:facet name="header">
+					<h:outputText value="Pays"  />
+				</f:facet>
+				<h:outputText value="#{entity.tabPays.libPays}" />				
+			</rich:column>
+			
+									
+		</ui:define>
+		
+	</ui:composition>
+	
+</html>

@@ -1,0 +1,174 @@
+package com.mincom.gescom.be.imp.sisv;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
+import com.mincom.gescom.be.core.base.BaseEntity;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.core.base.DateTools;
+import com.mincom.gescom.be.core.dao.base.IBaseDao;
+import com.mincom.gescom.be.core.dao.base.IDaoIncCod;
+import com.mincom.gescom.be.core.exception.BaseException;
+import com.mincom.gescom.be.core.exception.GesComAppException;
+import com.mincom.gescom.be.core.exception.GesComPersistenceException;
+import com.mincom.gescom.be.core.exception.GesComSystemException;
+import com.mincom.gescom.be.core.sisv.base.BaseSisv;
+import com.mincom.gescom.be.imp.dao.IDaoAutSpeImp;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.dao.IDaoPro;
+import com.mincom.gescom.be.ref.entity.TabPro;
+
+@Stateless
+public class SisvAutSpeImp extends BaseSisv<TabAutSpeImp, String> implements ISisvAutSpeImp{
+	
+	private static BaseLogger logger = BaseLogger.getLogger(SisvAutSpeImp.class);
+
+	@Override
+	public BaseLogger getLogger() {
+		return logger;
+	} 
+	@EJB
+	IDaoAutSpeImp daoAutSpe; 
+	
+	@EJB
+	IDaoIncCod daoIncCod;
+	
+	@EJB
+	IDaoPro daoPro;
+
+
+
+
+	@Override
+	public IBaseDao<TabAutSpeImp, String> getBaseDao() {
+		return daoAutSpe;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <X extends BaseEntity> X creer(X p$entite) throws BaseException {
+		try {
+			TabAutSpeImp impToSave = (TabAutSpeImp)p$entite;
+			String numAut = genererNumAut(impToSave);
+			//On fabrique le code de l'autorisation = Année+numAut+codSite 
+			String codAut =  DateTools.getYear(DateTools.formatDate(new Date())) + numAut + impToSave.getCodSiteID();
+			//On enregistre l'autorisation
+			impToSave.setNumAut(numAut);
+			impToSave.setCodAut(codAut);
+			
+			TabAutSpeImp autSave = (TabAutSpeImp) daoAutSpe.save(impToSave);
+			//Récupére la liste des produit
+			List<TabPro> listePro = impToSave.getListPro();
+			if(listePro != null && listePro.size() > 0){
+				//On parcour la liste des produit, on fixe le code du produit puis on l'enregistre
+				for(TabPro proCour : listePro){
+					String codPro = numAut +"_"+ genererCodPro(proCour);
+					proCour.setCodPro(codPro);
+					proCour.setCodGenImp(numAut);
+					daoPro.save(proCour);
+				}
+			}
+			return (X) autSave;			
+		} catch (BaseException e) {
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			String message =  e.getMessage();
+			GesComAppException sysEx =  new GesComAppException(message, e);
+			getLogger().error(message, sysEx);
+			throw sysEx;
+		}
+	}
+
+	public <X extends BaseEntity> X rechercher(X entity, Serializable id) throws GesComSystemException {
+		try {
+			return daoAutSpe.findById(entity, id);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+
+	public <X extends BaseEntity> List<X> rechercherTout(X entity) throws GesComSystemException {
+			
+		try {
+			return daoAutSpe.findAll(entity);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+
+	@Override
+	public <X extends BaseEntity> List<X> rechercherParCritere(X entity)
+			throws GesComSystemException {
+		try {
+			return daoAutSpe.findByExample(entity);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+	
+	@Override
+	public  TabAutSpeImp rechercherParNumAut(String numAut)
+			throws GesComSystemException {
+		try {
+			return daoAutSpe.findByNumAut(numAut);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+	
+	@Override
+	public  List<TabPro> rechercherProduitParNumAut(String numAut)
+			throws GesComSystemException {
+		try {
+			return daoAutSpe.findProductByNumAut(numAut);
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			GesComSystemException sbr = new GesComSystemException(e);
+			throw sbr;
+		}
+	}
+	
+	private String genererNumAut(TabAutSpeImp tabAut) throws GesComSystemException{
+		
+		BigDecimal v$inc;
+		try {
+			v$inc = daoIncCod.findNextIncCod(tabAut).getValIncCod();
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			throw new GesComSystemException(e.getMessage(), e);
+		}
+		String numero = DateTools.padRigth(String.valueOf(v$inc), 6, '0');
+		
+//		 numero = DateTools.getYear(DateTools.formatDate(new Date())) + numero;
+		return numero;
+	}
+	
+	private String genererCodPro(TabPro tabPro) throws GesComSystemException{
+		
+		BigDecimal v$inc;
+		try {
+			v$inc = daoIncCod.findNextIncCod(tabPro).getValIncCod();
+		} catch (GesComPersistenceException e) {
+			e.printStackTrace();
+			throw new GesComSystemException(e.getMessage(), e);
+		}
+		String numero = DateTools.padRigth(String.valueOf(v$inc), 6, '0');
+		
+		return numero;
+	}
+	
+
+}

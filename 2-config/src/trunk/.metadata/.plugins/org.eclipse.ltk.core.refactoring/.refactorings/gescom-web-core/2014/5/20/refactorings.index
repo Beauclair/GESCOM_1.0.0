@@ -1,0 +1,40 @@
+1400175510426	Delete elements
+1400175578057	Delete elements
+1400175613649	Delete elements
+1400175653318	Delete elements
+1400181546834	Rename package 'com.gss.gevee.ui.core.base'
+1400181639960	Rename type 'GeveeCtrl'
+1400181669187	Rename type 'GeveeVue'
+1400181840706	Rename type 'GeveeSvcoDeleguate'
+1400181859382	Rename type 'GeveeToolBox'
+1400181874467	Rename type 'GeveeTrt'
+1400181934742	Rename source folder 'src/main/code/mouvement'
+1400181965954	Rename package 'com.gss.gevee.ui.mouv.controleur'
+1400181995649	Rename package 'com.gss.gevee.ui.mouv.vue'
+1400182016589	Rename package 'com.gss.gevee.ui.mouv.util'
+1400182033112	Rename type 'MouvSvcoDelegaute'
+1400182050120	Rename type 'MouvTrt'
+1400182077674	Rename package 'com.gss.gevee.ui.ref.controleur'
+1400182087792	Rename package 'com.gss.gevee.ui.ref.vue'
+1400182101435	Rename package 'com.gss.gevee.ui.ref.util'
+1400182236051	Rename package 'com.gss.gevee.ui.admin.controleur'
+1400182249019	Rename package 'com.gss.gevee.ui.admin.vue'
+1400182260407	Rename package 'com.gss.gevee.ui.admin.util'
+1400182339775	Rename package 'com.gss.gevee.ui.core.controleur'
+1400182350779	Rename package 'com.gss.gevee.ui.core.vue'
+1400189958072	Encapsulate field 'infoUser'
+1400261498640	Rename type 'LieuVue'
+1400261672680	Rename type 'LieuCtrl'
+1400404744326	Encapsulate field 'listSites'
+1400418113810	Copy compilation unit
+1400418127935	Rename type 'SiteVue'
+1400418129900	Copy compilation unit
+1400418148185	Rename type 'SiteVue'
+1400418279115	Copy compilation unit
+1400418299129	Rename type 'SiteCtrl'
+1400418369732	Copy compilation unit
+1400418381546	Rename type 'SiteCtrl'
+1400423283514	Copy compilation unit
+1400423294669	Copy compilation unit
+1400423371647	Copy compilation unit
+1400423379786	Copy compilation unit

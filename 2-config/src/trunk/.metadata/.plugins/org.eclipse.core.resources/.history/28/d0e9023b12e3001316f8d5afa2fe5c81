@@ -1,0 +1,20 @@
+package com.mincom.gescom.be.imp.svco;
+
+import java.util.List;
+
+import com.mincom.gescom.be.core.exception.GesComAppException;
+import com.mincom.gescom.be.core.svco.base.IBaseSvco;
+import com.mincom.gescom.be.imp.entity.TabDecImp;
+import com.mincom.gescom.be.ref.entity.TabPro;
+import com.mincom.gescom.be.util.EntFichier;
+
+public interface ISvcoDecImp extends IBaseSvco<TabDecImp>{
+
+	TabDecImp rechercherParNumDec(String numDec) throws GesComAppException;
+
+	List<TabPro> rechercherProduitParNumDec(String numDec)
+			throws GesComAppException;
+
+	EntFichier genererDecImp(TabDecImp aut) throws GesComAppException;
+
+}

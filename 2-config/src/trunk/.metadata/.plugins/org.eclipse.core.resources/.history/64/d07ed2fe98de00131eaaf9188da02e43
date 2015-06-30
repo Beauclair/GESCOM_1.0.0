@@ -1,0 +1,43 @@
+package com.mincom.gescom.ui.ref.util;
+
+import com.mincom.gescom.be.admin.svco.utilisateur.IRemoteUsr;
+import com.mincom.gescom.be.core.base.BaseLogger;
+import com.mincom.gescom.be.ref.svco.IRemoteBnq;
+import com.mincom.gescom.be.ref.svco.IRemoteDvs;
+import com.mincom.gescom.ui.core.base.GesComSvcoDeleguate;
+import com.mincom.gescom.ui.core.base.ServiceLocatorException;
+
+public class RefSvcoDeleguate {
+	
+	BaseLogger logger = BaseLogger.getLogger(RefSvcoDeleguate.class);
+	/**
+	 * Retourne le nom du Bean du Service composé en fonction du nom de l'entité (@param p$p$beanName)
+	 * 
+	 * @param p$beanName
+	 * @return
+	 */
+	private static String getSvcoBeanName(String p$beanName, Class<?> p$remoteInterface){		
+		
+		return GesComSvcoDeleguate.getSvcoBeanName(p$beanName, p$remoteInterface);
+	}
+				
+	/*================================== Services composés de la Partie Technique =================================*/
+	public static IRemoteBnq getSvcoBnq() throws ServiceLocatorException{
+        return (IRemoteBnq) GesComSvcoDeleguate.getCachingServiceLocator().lookup(getSvcoBeanName("SvcoBnq", IRemoteBnq.class));
+    }
+	
+	public static IRemoteDvs getSvcoDvs() throws ServiceLocatorException{
+        return (IRemoteDvs) GesComSvcoDeleguate.getCachingServiceLocator().lookup(getSvcoBeanName("SvcoDvs", IRemoteDvs.class));
+    }
+
+	public BaseLogger getLogger() {
+		return logger;
+	}
+
+
+
+	public void setLogger(BaseLogger logger) {
+		this.logger = logger;
+	}	
+
+}

@@ -1,0 +1,17 @@
+package com.mincom.gescom.be.imp.svco;
+
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
+import com.mincom.gescom.be.core.svco.base.BaseSvco;
+import com.mincom.gescom.be.imp.entity.TabAutSpeImp;
+import com.mincom.gescom.be.ref.entity.TabAct;
+import com.mincom.gescom.be.ref.svco.ILocalAct;
+import com.mincom.gescom.be.ref.svco.IRemoteAct;
+
+@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class SvcoAutSpeImp extends BaseSvco<TabAutSpeImp> implements IRemoteAutSpeImp, ILocalAutSpeImp{
+
+}

@@ -1,0 +1,42 @@
+1400174974225	Delete element
+1400174993737	Delete elements
+1400175002985	Delete elements
+1400178966492	Rename type 'GeveeBaseEntity'
+1400179025566	Delete elements
+1400179037591	Delete element
+1400179042170	Delete element
+1400179213865	Rename type 'GeveeAppException'
+1400179233520	Rename type 'GeveePersistenceException'
+1400179244495	Rename type 'GeveeSystemException'
+1400179323501	Rename type 'GeveeOutput'
+1400179363268	Rename type 'GeveePrinterExportEnum'
+1400179583623	Rename package 'com.gss.gevee.be.ref.entity'
+1400179605186	Rename package 'com.gss.gevee.be.ref.serializer'
+1400179779924	Rename package 'com.gss.gevee.be.admin.entity.utilisateur'
+1400188135705	Encapsulate field 'codUsrCrt'
+1400188142639	Encapsulate field 'codUsrMod'
+1400188150001	Encapsulate field 'datCrt'
+1400188156375	Encapsulate field 'datMod'
+1400188163137	Encapsulate field 'codSite'
+1400189857896	Rename type 'IInfoUser'
+1400189882254	Encapsulate field 'user'
+1400192393420	Encapsulate field 'libSIte'
+1400396315232	Encapsulate field 'libDesc'
+1400398407233	Encapsulate field 'codSite'
+1400398412972	Encapsulate field 'libSite'
+1400408957360	Delete element
+1400409160469	Copy compilation unit
+1400409176034	Rename type 'TabSite'
+1400409318461	Copy compilation unit
+1400409329376	Rename type 'TabSite'
+1400409428030	Encapsulate field 'codBnq'
+1400409434069	Encapsulate field 'libBnq'
+1400409991035	Encapsulate field 'codDvs'
+1400409996574	Encapsulate field 'libDvs'
+1400421527513	Copy compilation unit
+1400421541849	Copy compilation unit
+1400421972340	Encapsulate field 'libPays'
+1400428664462	Copy compilation unit
+1400428817336	Delete element
+1400428837703	Copy compilation unit
+1400428932783	Copy compilation unit
